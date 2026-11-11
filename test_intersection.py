@@ -6,7 +6,6 @@ from typing import Dict, List
 
 from intersection import APPROACHES, Intersection, LaneKey
 
-
 def layout(inter: Intersection) -> Dict[LaneKey, List[int]]:
     """Car ids per lane, front first, for comparing two intersections."""
     return {key: [c.id for c in inter.cars_in_lane(*key)] for key in inter.lanes}

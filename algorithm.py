@@ -2,19 +2,31 @@ import numpy as np
 import random
 from intersection import Intersection
 
-intersection_variants = [0, 0, 0]
+intersection_variants = []
+for seed in [10, 20, 30]:
+    intersection = Intersection(seed = seed)
+    intersection.populate_random()
+    intersection_variants.append(intersection)
 
-def evaluate_fitness(population: list[list[float]]):
+def evaluate_fitness(population: list[list[float]]) -> list[float]:
     fitness = []
 
     for individual in population:
         variant_fitness = []
+        advanced_green, green, red = individual[:3]
 
         for variant in intersection_variants:
-            score = random.randint(0, 100)
-            variant_fitness.append(score)
 
-        fitness.append(np.mean(variant_fitness))
+            intersection = variant.copy()
+            waiting_time = simulate_traffic(
+                intersection,
+                advanced_green,
+                green,
+                red
+            )
+            variant_fitness.append(waiting_time)
+
+        fitness.append(float(np.mean(variant_fitness)))
 
     return fitness
 
