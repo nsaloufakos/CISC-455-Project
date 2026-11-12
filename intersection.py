@@ -36,30 +36,29 @@ class Intersection:
         self,
         num_cars: int = 30,
         lanes_per_approach: int = 2,
-        capacity_fraction: float = 1.0,
-        lane_capacity: int | None = None,
+        capacity_fraction: float = 0.25,
         seed: int | None = None,
     ) -> None:
         """Create an empty intersection; call populate_random() or populate_from().
 
-        lane_capacity defaults to ceil(num_cars * capacity_fraction); an
-        explicit lane_capacity takes precedence.
+        Each lane holds at most ceil(num_cars * capacity_fraction) cars.
         """
         self.num_cars = num_cars
         self.lanes_per_approach = lanes_per_approach
-        if lane_capacity is None:
-            # round() removes float noise: 30 * 0.1 is 3.0000000000000004.
-            lane_capacity = math.ceil(round(num_cars * capacity_fraction, 9))
-        self.lane_capacity = lane_capacity
 
-        if lane_capacity * self.num_lanes < num_cars:
+        
+        self.lane_capacity = math.ceil(round(num_cars * capacity_fraction, 9))
+
+        #Technicaly this should be always false, if we keep capacity_fraction bigger than 1/number of lanes.
+        if self.lane_capacity * self.num_lanes < num_cars:
             raise ValueError(
-                f"total capacity {lane_capacity * self.num_lanes} "
-                f"({self.num_lanes} lanes x {lane_capacity}) is less than "
+                f"total capacity {self.lane_capacity * self.num_lanes} "
+                f"({self.num_lanes} lanes x {self.lane_capacity}) is less than "
                 f"num_cars={num_cars}"
             )
 
         self._rng = random.Random(seed)
+        # One queue per lane, keyed by (approach, lane); index 0 is the front car.
         self._queues: dict[LaneKey, list[Car]] = {key: [] for key in self.lanes}
 
     @property
@@ -85,17 +84,21 @@ class Intersection:
             queue = self._queues[(approach, lane)]
             queue.append(Car(car_id, approach, lane, position=len(queue)))
 
-    def populate_random(self) -> None:
-        """Put every car in a random lane that still has room."""
-        counts = dict.fromkeys(self.lanes, 0)
-        keys: list[LaneKey] = []
-        for _ in range(self.num_cars):
-            open_lanes = [k for k in self.lanes if counts[k] < self.lane_capacity]
-            key = self._rng.choice(open_lanes)
-            counts[key] += 1
-            keys.append(key)
-        self._rng.shuffle(keys)  # so car ids aren't tied to the order lanes fill
-        self._place(keys)
+    def populate_random(self, max_attempts: int = 1000) -> None:
+        """Give every car a random lane; redraw if any lane is over capacity.
+
+        Raises RuntimeError if no valid layout turns up within max_attempts
+        (possible when capacity is tight, e.g. 32 slots for 30 cars).
+        """
+        for _ in range(max_attempts):
+            keys = [self._rng.choice(self.lanes) for _ in range(self.num_cars)]
+            if all(keys.count(key) <= self.lane_capacity for key in set(keys)):
+                self._place(keys)
+                return
+        raise RuntimeError(
+            f"no valid layout in {max_attempts} attempts with lane_capacity="
+            f"{self.lane_capacity}; try a larger capacity_fraction or max_attempts"
+        )
 
     def populate_from(self, assignment: list[tuple[str, int]]) -> None:
         """Build the layout from assignment[car_id] = (approach, lane).
