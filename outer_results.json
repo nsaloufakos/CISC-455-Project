@@ -1,0 +1,16 @@
+{
+  "best_hyperparameters": {
+    "mu": 51,
+    "lamd": 78,
+    "lr": 0.28329482820918916,
+    "tournament_size": 10,
+    "crossover_alpha": 0.017213260387557106,
+    "mating_pool_size": 128,
+    "sigma_init": 2.9847716406926033,
+    "sigma_bound": 0.6117317653904816
+  },
+  "best_fitness": 208.0183648340431,
+  "configurations_evaluated": 30,
+  "inner_evaluation_budget": 300,
+  "inner_repeats": 2
+}
