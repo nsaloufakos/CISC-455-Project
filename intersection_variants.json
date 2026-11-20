@@ -1,0 +1,6912 @@
+{
+  "settings": {
+    "num_variants": 50,
+    "num_cars": 30,
+    "min_cars": 1,
+    "max_cars": 8,
+    "seed": 42,
+    "arrival_window": 120.0
+  },
+  "variants": [
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 18.340958321791327
+        },
+        {
+          "turn": "left",
+          "arrival": 27.91930720688875
+        },
+        {
+          "turn": "left",
+          "arrival": 70.85910149388476
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.77672739858723
+        },
+        {
+          "turn": "straight",
+          "arrival": 109.5763349022654
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 11.605965220015682
+        },
+        {
+          "turn": "straight",
+          "arrival": 29.387022456417146
+        },
+        {
+          "turn": "right",
+          "arrival": 33.356832373211056
+        },
+        {
+          "turn": "right",
+          "arrival": 81.80524428318897
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 55.47122542213389
+        },
+        {
+          "turn": "straight",
+          "arrival": 61.14315524117574
+        },
+        {
+          "turn": "straight",
+          "arrival": 96.60549609254572
+        },
+        {
+          "turn": "straight",
+          "arrival": 114.86556866481375
+        },
+        {
+          "turn": "left",
+          "arrival": 118.22658247929093
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 26.452874644883604
+        },
+        {
+          "turn": "straight",
+          "arrival": 101.14223042277715
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 18.340712225956178
+        },
+        {
+          "turn": "straight",
+          "arrival": 44.421716054025914
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.09572068003858
+        },
+        {
+          "turn": "straight",
+          "arrival": 78.6526398353856
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 13.386260831505172
+        },
+        {
+          "turn": "right",
+          "arrival": 60.92180095251903
+        },
+        {
+          "turn": "right",
+          "arrival": 84.54862034579082
+        },
+        {
+          "turn": "right",
+          "arrival": 87.56781440325814
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.73874603229724
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 31.785619979766295
+        },
+        {
+          "turn": "left",
+          "arrival": 46.17207740094001
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.24487575278724
+        },
+        {
+          "turn": "straight",
+          "arrival": 114.45791130252961
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 116.52940531363417
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 8.0880393732369
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.99080865699848
+        },
+        {
+          "turn": "straight",
+          "arrival": 48.314553852272255
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.82891138135533
+        },
+        {
+          "turn": "straight",
+          "arrival": 89.75706724548769
+        },
+        {
+          "turn": "straight",
+          "arrival": 111.1640379609753
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 58.63268496347374
+        },
+        {
+          "turn": "right",
+          "arrival": 78.25738727982265
+        },
+        {
+          "turn": "straight",
+          "arrival": 96.96266936780431
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 0.8629006782112247
+        },
+        {
+          "turn": "straight",
+          "arrival": 7.683107559161391
+        },
+        {
+          "turn": "straight",
+          "arrival": 71.40421277400333
+        },
+        {
+          "turn": "straight",
+          "arrival": 85.55387673829462
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 11.631697707458798
+        },
+        {
+          "turn": "straight",
+          "arrival": 14.386393673654903
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.018564294467993
+        },
+        {
+          "turn": "right",
+          "arrival": 58.276935054086216
+        },
+        {
+          "turn": "right",
+          "arrival": 63.32085449019048
+        },
+        {
+          "turn": "right",
+          "arrival": 79.17009872968409
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 28.734277240567057
+        },
+        {
+          "turn": "left",
+          "arrival": 61.69873437703069
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 83.5909804320195
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.95369015715346
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 6.825549567442142
+        },
+        {
+          "turn": "straight",
+          "arrival": 19.756454568183223
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.787744072116457
+        },
+        {
+          "turn": "straight",
+          "arrival": 64.70807176737055
+        },
+        {
+          "turn": "straight",
+          "arrival": 94.15433091489041
+        },
+        {
+          "turn": "left",
+          "arrival": 111.18216882712001
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 56.042960164400995
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 31.735910578455318
+        },
+        {
+          "turn": "straight",
+          "arrival": 54.99426271423034
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 25.209184600770485
+        },
+        {
+          "turn": "right",
+          "arrival": 64.51612849219528
+        },
+        {
+          "turn": "straight",
+          "arrival": 93.61394902457312
+        },
+        {
+          "turn": "right",
+          "arrival": 99.52177072466631
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 2.8397321641741824
+        },
+        {
+          "turn": "left",
+          "arrival": 100.151402386322
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.76994455959893
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 15.29346231385665
+        },
+        {
+          "turn": "right",
+          "arrival": 19.10374115768775
+        },
+        {
+          "turn": "right",
+          "arrival": 33.810752574947315
+        },
+        {
+          "turn": "straight",
+          "arrival": 47.494301614950544
+        },
+        {
+          "turn": "right",
+          "arrival": 74.32578123985238
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.70370084237274
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 13.84101022217131
+        },
+        {
+          "turn": "left",
+          "arrival": 76.45360527616556
+        },
+        {
+          "turn": "straight",
+          "arrival": 82.49965545615966
+        },
+        {
+          "turn": "left",
+          "arrival": 96.26821667245667
+        },
+        {
+          "turn": "left",
+          "arrival": 103.72235304363436
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 18.929619882867836
+        },
+        {
+          "turn": "straight",
+          "arrival": 24.511103930824373
+        },
+        {
+          "turn": "straight",
+          "arrival": 37.94126355262249
+        },
+        {
+          "turn": "right",
+          "arrival": 76.97780863291533
+        },
+        {
+          "turn": "right",
+          "arrival": 80.14358444551003
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 103.0311901605338
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 36.62290408063207
+        },
+        {
+          "turn": "straight",
+          "arrival": 67.30882377296956
+        },
+        {
+          "turn": "right",
+          "arrival": 108.64037892951879
+        },
+        {
+          "turn": "right",
+          "arrival": 111.09165870834678
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 0.20295338623553594
+        },
+        {
+          "turn": "straight",
+          "arrival": 18.09967896157039
+        },
+        {
+          "turn": "straight",
+          "arrival": 93.41044881207901
+        },
+        {
+          "turn": "left",
+          "arrival": 118.07232273382218
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 16.000692666843467
+        },
+        {
+          "turn": "straight",
+          "arrival": 28.13922936175624
+        },
+        {
+          "turn": "straight",
+          "arrival": 34.429646024271264
+        },
+        {
+          "turn": "straight",
+          "arrival": 49.73292131972632
+        },
+        {
+          "turn": "right",
+          "arrival": 107.94056794934394
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 7.707462085665369
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 4.590863682391526
+        },
+        {
+          "turn": "right",
+          "arrival": 51.75568795499843
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.32526028125243
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 23.020811158817697
+        },
+        {
+          "turn": "left",
+          "arrival": 80.02714849268756
+        },
+        {
+          "turn": "straight",
+          "arrival": 96.78754734915191
+        },
+        {
+          "turn": "straight",
+          "arrival": 98.21081574439971
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 52.36726606447296
+        },
+        {
+          "turn": "straight",
+          "arrival": 53.01432202055435
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.51827873141154
+        },
+        {
+          "turn": "straight",
+          "arrival": 75.20981243781375
+        },
+        {
+          "turn": "right",
+          "arrival": 79.60649715186531
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 66.88869528400744
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.86178991416567
+        },
+        {
+          "turn": "straight",
+          "arrival": 79.06208939981062
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 0.7075300300791687
+        },
+        {
+          "turn": "straight",
+          "arrival": 7.4718852700302385
+        },
+        {
+          "turn": "straight",
+          "arrival": 31.10298581580232
+        },
+        {
+          "turn": "right",
+          "arrival": 102.8078438764721
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.66497238799145
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 28.625393026668704
+        },
+        {
+          "turn": "straight",
+          "arrival": 41.66445183701388
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.80407801222649
+        },
+        {
+          "turn": "left",
+          "arrival": 69.0956074094897
+        },
+        {
+          "turn": "left",
+          "arrival": 113.95340792591867
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 16.28393846766771
+        },
+        {
+          "turn": "straight",
+          "arrival": 26.90665988636978
+        },
+        {
+          "turn": "straight",
+          "arrival": 40.335545243805896
+        },
+        {
+          "turn": "straight",
+          "arrival": 45.49246370257675
+        },
+        {
+          "turn": "right",
+          "arrival": 71.0271330753493
+        },
+        {
+          "turn": "right",
+          "arrival": 105.79574208033263
+        },
+        {
+          "turn": "right",
+          "arrival": 115.76649276409051
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 58.62934162185448
+        },
+        {
+          "turn": "left",
+          "arrival": 83.66316029949266
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 26.33059615457234
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 58.505991886961326
+        },
+        {
+          "turn": "straight",
+          "arrival": 60.71529476124935
+        },
+        {
+          "turn": "straight",
+          "arrival": 61.9952702057921
+        },
+        {
+          "turn": "straight",
+          "arrival": 72.70712310723735
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 33.55901856451032
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.78485259614094
+        },
+        {
+          "turn": "straight",
+          "arrival": 91.34756494728325
+        },
+        {
+          "turn": "right",
+          "arrival": 102.20557920231983
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 100.86067956750703
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 12.66466447727983
+        },
+        {
+          "turn": "straight",
+          "arrival": 40.36759438696503
+        },
+        {
+          "turn": "right",
+          "arrival": 52.258457400921245
+        },
+        {
+          "turn": "straight",
+          "arrival": 64.58646811322778
+        },
+        {
+          "turn": "straight",
+          "arrival": 100.18930978945454
+        },
+        {
+          "turn": "right",
+          "arrival": 112.97647182495716
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 38.92496001375627
+        },
+        {
+          "turn": "left",
+          "arrival": 44.230279033924674
+        },
+        {
+          "turn": "straight",
+          "arrival": 53.24142619940469
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 45.763715718915485
+        },
+        {
+          "turn": "right",
+          "arrival": 94.63325808121847
+        },
+        {
+          "turn": "right",
+          "arrival": 99.9406679607826
+        },
+        {
+          "turn": "straight",
+          "arrival": 108.14513083186596
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.54719514426532
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 53.00757403245773
+        },
+        {
+          "turn": "left",
+          "arrival": 116.07236967600389
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 26.280544671372652
+        },
+        {
+          "turn": "straight",
+          "arrival": 76.54855572042823
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 10.816005089546273
+        },
+        {
+          "turn": "left",
+          "arrival": 51.682414542648004
+        },
+        {
+          "turn": "left",
+          "arrival": 75.3897724424278
+        },
+        {
+          "turn": "straight",
+          "arrival": 89.61196400855124
+        },
+        {
+          "turn": "straight",
+          "arrival": 119.92482786002151
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 2.632751743147801
+        },
+        {
+          "turn": "right",
+          "arrival": 77.98039830951271
+        },
+        {
+          "turn": "straight",
+          "arrival": 82.83762149521549
+        },
+        {
+          "turn": "right",
+          "arrival": 94.88183623067249
+        },
+        {
+          "turn": "straight",
+          "arrival": 98.6900761472129
+        },
+        {
+          "turn": "straight",
+          "arrival": 99.65671434808769
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 20.398037888171686
+        },
+        {
+          "turn": "straight",
+          "arrival": 24.095375358009147
+        },
+        {
+          "turn": "left",
+          "arrival": 59.720070284154126
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 0.9717558913788293
+        },
+        {
+          "turn": "right",
+          "arrival": 74.09513539232678
+        },
+        {
+          "turn": "right",
+          "arrival": 75.21590148095854
+        },
+        {
+          "turn": "straight",
+          "arrival": 89.58712208604541
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 1.7832392676850617
+        },
+        {
+          "turn": "left",
+          "arrival": 11.000810858102504
+        },
+        {
+          "turn": "left",
+          "arrival": 36.52375012272063
+        },
+        {
+          "turn": "straight",
+          "arrival": 51.60839299996636
+        },
+        {
+          "turn": "straight",
+          "arrival": 94.415350854554
+        },
+        {
+          "turn": "straight",
+          "arrival": 106.47111702342028
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 54.96510265172184
+        },
+        {
+          "turn": "right",
+          "arrival": 56.57722415777263
+        },
+        {
+          "turn": "straight",
+          "arrival": 60.46064277429856
+        },
+        {
+          "turn": "straight",
+          "arrival": 72.9956908360128
+        },
+        {
+          "turn": "straight",
+          "arrival": 85.48815778765156
+        },
+        {
+          "turn": "right",
+          "arrival": 101.67582518006913
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 8.233218338922708
+        },
+        {
+          "turn": "straight",
+          "arrival": 33.27298151708196
+        },
+        {
+          "turn": "straight",
+          "arrival": 97.56635773452707
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 1.8937300213392305
+        },
+        {
+          "turn": "straight",
+          "arrival": 63.130263191744056
+        },
+        {
+          "turn": "right",
+          "arrival": 95.82165882691483
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 45.708527858222496
+        },
+        {
+          "turn": "straight",
+          "arrival": 47.77675712932477
+        },
+        {
+          "turn": "straight",
+          "arrival": 53.2059703272842
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.71828567673299
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 60.666128938281645
+        },
+        {
+          "turn": "right",
+          "arrival": 117.71132619888806
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 80.45834626202054
+        },
+        {
+          "turn": "straight",
+          "arrival": 106.24965406794952
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 77.90873355415093
+        },
+        {
+          "turn": "straight",
+          "arrival": 93.36204471770432
+        },
+        {
+          "turn": "right",
+          "arrival": 99.29030697360537
+        },
+        {
+          "turn": "straight",
+          "arrival": 112.68636788563865
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 63.67257849271779
+        },
+        {
+          "turn": "straight",
+          "arrival": 79.43150848457012
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 12.420225272446995
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.409098373574494
+        },
+        {
+          "turn": "right",
+          "arrival": 55.52539907127267
+        },
+        {
+          "turn": "straight",
+          "arrival": 109.08599478883974
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 18.593420753328576
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.52297848801855
+        },
+        {
+          "turn": "straight",
+          "arrival": 91.22583546562704
+        },
+        {
+          "turn": "left",
+          "arrival": 113.72019210412162
+        },
+        {
+          "turn": "left",
+          "arrival": 118.9183227176265
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 8.194351019490732
+        },
+        {
+          "turn": "right",
+          "arrival": 9.780238493746074
+        },
+        {
+          "turn": "right",
+          "arrival": 12.33654333333154
+        },
+        {
+          "turn": "straight",
+          "arrival": 44.74223785215925
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.67436822156235
+        },
+        {
+          "turn": "straight",
+          "arrival": 72.6007000884077
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 9.2077201408146
+        },
+        {
+          "turn": "left",
+          "arrival": 39.56289061412746
+        },
+        {
+          "turn": "straight",
+          "arrival": 43.51172027784533
+        },
+        {
+          "turn": "left",
+          "arrival": 87.28549268086851
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 26.588647067310163
+        },
+        {
+          "turn": "right",
+          "arrival": 60.545880180114885
+        },
+        {
+          "turn": "straight",
+          "arrival": 70.97037081972252
+        },
+        {
+          "turn": "right",
+          "arrival": 77.21919160335834
+        },
+        {
+          "turn": "straight",
+          "arrival": 116.12358092312935
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 71.40494737818898
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 30.23949419593839
+        },
+        {
+          "turn": "straight",
+          "arrival": 81.46772646714973
+        },
+        {
+          "turn": "straight",
+          "arrival": 103.70962497976994
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 63.53518578435476
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 80.54206666724015
+        },
+        {
+          "turn": "right",
+          "arrival": 92.99573802377859
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 17.13353620350597
+        },
+        {
+          "turn": "left",
+          "arrival": 28.408342114424457
+        },
+        {
+          "turn": "left",
+          "arrival": 37.87149840596704
+        },
+        {
+          "turn": "left",
+          "arrival": 38.54537138575128
+        },
+        {
+          "turn": "left",
+          "arrival": 62.12943290500704
+        },
+        {
+          "turn": "left",
+          "arrival": 119.67148848276501
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 7.889772632083929
+        },
+        {
+          "turn": "right",
+          "arrival": 16.287410127663268
+        },
+        {
+          "turn": "straight",
+          "arrival": 42.18563805263906
+        },
+        {
+          "turn": "straight",
+          "arrival": 42.83690112424361
+        },
+        {
+          "turn": "straight",
+          "arrival": 61.05068942091609
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.04821893351381
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.27767692489526
+        },
+        {
+          "turn": "straight",
+          "arrival": 113.85882351186677
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 32.94664320898291
+        },
+        {
+          "turn": "left",
+          "arrival": 53.50989157195832
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.24975892111628
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.26240627179915
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 14.937000989326009
+        },
+        {
+          "turn": "straight",
+          "arrival": 45.94252820265333
+        },
+        {
+          "turn": "straight",
+          "arrival": 56.088700715000975
+        },
+        {
+          "turn": "right",
+          "arrival": 85.14485841835058
+        },
+        {
+          "turn": "straight",
+          "arrival": 102.1634460903751
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 15.147602916270513
+        },
+        {
+          "turn": "left",
+          "arrival": 35.21310854100375
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 30.39765182431409
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.3564993946064
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 5.455416394961037
+        },
+        {
+          "turn": "straight",
+          "arrival": 71.01701343799262
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 29.00854331237605
+        },
+        {
+          "turn": "right",
+          "arrival": 62.172255950881954
+        },
+        {
+          "turn": "straight",
+          "arrival": 106.67962577387453
+        },
+        {
+          "turn": "right",
+          "arrival": 116.68556778165191
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 51.914194377836985
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.791865047189056
+        },
+        {
+          "turn": "left",
+          "arrival": 66.3867511945382
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 49.87460954569381
+        },
+        {
+          "turn": "straight",
+          "arrival": 101.10360049360668
+        },
+        {
+          "turn": "right",
+          "arrival": 112.05018422992858
+        },
+        {
+          "turn": "straight",
+          "arrival": 112.16854039668928
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 6.064848555347027
+        },
+        {
+          "turn": "straight",
+          "arrival": 30.072637077839886
+        },
+        {
+          "turn": "straight",
+          "arrival": 37.50989990963197
+        },
+        {
+          "turn": "straight",
+          "arrival": 75.00268337383086
+        },
+        {
+          "turn": "straight",
+          "arrival": 92.03508010995733
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 15.691938186286375
+        },
+        {
+          "turn": "straight",
+          "arrival": 29.385349277873164
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 16.90531620098202
+        },
+        {
+          "turn": "left",
+          "arrival": 29.792433645742392
+        },
+        {
+          "turn": "left",
+          "arrival": 116.00239566629705
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 5.429087341351759
+        },
+        {
+          "turn": "right",
+          "arrival": 54.42529595462055
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.68443276570108
+        },
+        {
+          "turn": "straight",
+          "arrival": 64.40288991467125
+        },
+        {
+          "turn": "straight",
+          "arrival": 81.61307887794972
+        },
+        {
+          "turn": "straight",
+          "arrival": 92.29974604496375
+        },
+        {
+          "turn": "right",
+          "arrival": 105.89468771023114
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 2.272484100793508
+        },
+        {
+          "turn": "straight",
+          "arrival": 117.00993784965408
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 31.863652438286557
+        },
+        {
+          "turn": "right",
+          "arrival": 110.88115582678566
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 6.091851594895683
+        },
+        {
+          "turn": "left",
+          "arrival": 66.9703980968885
+        },
+        {
+          "turn": "straight",
+          "arrival": 70.0227932457168
+        },
+        {
+          "turn": "left",
+          "arrival": 111.76424826359879
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 5.047978419927062
+        },
+        {
+          "turn": "right",
+          "arrival": 6.298932820735534
+        },
+        {
+          "turn": "straight",
+          "arrival": 82.86003131022305
+        },
+        {
+          "turn": "straight",
+          "arrival": 109.45489931088125
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 13.1071897885296
+        },
+        {
+          "turn": "left",
+          "arrival": 62.31992523996999
+        },
+        {
+          "turn": "left",
+          "arrival": 117.58776374149943
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 14.624892687925808
+        },
+        {
+          "turn": "straight",
+          "arrival": 63.057258168004246
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.20918960945019
+        },
+        {
+          "turn": "straight",
+          "arrival": 84.58811242039006
+        },
+        {
+          "turn": "straight",
+          "arrival": 90.59582067513527
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 5.436402296048968
+        },
+        {
+          "turn": "straight",
+          "arrival": 24.24816086407158
+        },
+        {
+          "turn": "straight",
+          "arrival": 81.74303838977163
+        },
+        {
+          "turn": "straight",
+          "arrival": 84.69302785821182
+        },
+        {
+          "turn": "left",
+          "arrival": 98.59935493534226
+        },
+        {
+          "turn": "left",
+          "arrival": 99.03735815503362
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 56.98711199976399
+        },
+        {
+          "turn": "straight",
+          "arrival": 57.576410784247365
+        },
+        {
+          "turn": "straight",
+          "arrival": 71.24695867571842
+        },
+        {
+          "turn": "straight",
+          "arrival": 98.20529521566748
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 50.146197869400645
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.847398913031526
+        },
+        {
+          "turn": "left",
+          "arrival": 64.21827322723256
+        },
+        {
+          "turn": "straight",
+          "arrival": 99.45288647501103
+        },
+        {
+          "turn": "left",
+          "arrival": 117.80222309286464
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 15.833320778531878
+        },
+        {
+          "turn": "straight",
+          "arrival": 34.147398282005554
+        },
+        {
+          "turn": "straight",
+          "arrival": 63.38077488878321
+        },
+        {
+          "turn": "straight",
+          "arrival": 78.44200404842384
+        },
+        {
+          "turn": "straight",
+          "arrival": 80.73212546728433
+        },
+        {
+          "turn": "right",
+          "arrival": 94.55527558510055
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 31.294233247853263
+        },
+        {
+          "turn": "straight",
+          "arrival": 39.682091619814265
+        },
+        {
+          "turn": "left",
+          "arrival": 78.34713572415598
+        },
+        {
+          "turn": "left",
+          "arrival": 89.72818045810278
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 19.744458789930604
+        },
+        {
+          "turn": "right",
+          "arrival": 81.64103039032776
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 1.1120602176119743
+        },
+        {
+          "turn": "straight",
+          "arrival": 1.6901034742157695
+        },
+        {
+          "turn": "straight",
+          "arrival": 21.059389660615764
+        },
+        {
+          "turn": "left",
+          "arrival": 76.645359023926
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 26.295432112241272
+        },
+        {
+          "turn": "straight",
+          "arrival": 34.24984095623903
+        },
+        {
+          "turn": "straight",
+          "arrival": 36.23350076299376
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 107.86672220561685
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 61.83367907517551
+        },
+        {
+          "turn": "right",
+          "arrival": 78.06464302491185
+        },
+        {
+          "turn": "right",
+          "arrival": 81.6354285526885
+        },
+        {
+          "turn": "straight",
+          "arrival": 90.88206279651911
+        },
+        {
+          "turn": "right",
+          "arrival": 102.1271686293596
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 22.57959527193064
+        },
+        {
+          "turn": "straight",
+          "arrival": 24.7297946220257
+        },
+        {
+          "turn": "left",
+          "arrival": 71.73418760778632
+        },
+        {
+          "turn": "straight",
+          "arrival": 88.8649294175834
+        },
+        {
+          "turn": "straight",
+          "arrival": 112.14993586619357
+        },
+        {
+          "turn": "straight",
+          "arrival": 117.41888192149668
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 6.184395493681656
+        },
+        {
+          "turn": "straight",
+          "arrival": 30.53486628811349
+        },
+        {
+          "turn": "right",
+          "arrival": 97.13738202470333
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 5.4347763273394545
+        },
+        {
+          "turn": "left",
+          "arrival": 44.935310476592115
+        },
+        {
+          "turn": "left",
+          "arrival": 66.70207991804551
+        },
+        {
+          "turn": "straight",
+          "arrival": 90.52628504967413
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 14.235980074233074
+        },
+        {
+          "turn": "straight",
+          "arrival": 25.066690626270038
+        },
+        {
+          "turn": "straight",
+          "arrival": 28.099382056998827
+        },
+        {
+          "turn": "right",
+          "arrival": 36.06011445089035
+        },
+        {
+          "turn": "straight",
+          "arrival": 109.76894085790866
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 33.07796733541528
+        },
+        {
+          "turn": "left",
+          "arrival": 94.29655151766215
+        },
+        {
+          "turn": "straight",
+          "arrival": 110.66713254134667
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 25.416932645880962
+        },
+        {
+          "turn": "right",
+          "arrival": 28.428484173206474
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 34.450884826958415
+        },
+        {
+          "turn": "straight",
+          "arrival": 46.61028585689531
+        },
+        {
+          "turn": "straight",
+          "arrival": 101.92091187120485
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 17.906112939019643
+        },
+        {
+          "turn": "right",
+          "arrival": 45.07746405623851
+        },
+        {
+          "turn": "right",
+          "arrival": 87.34297690873537
+        },
+        {
+          "turn": "straight",
+          "arrival": 98.80325248509412
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 49.48706668987113
+        },
+        {
+          "turn": "straight",
+          "arrival": 100.68821923139457
+        },
+        {
+          "turn": "left",
+          "arrival": 109.73295561307057
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 48.633395772514355
+        },
+        {
+          "turn": "straight",
+          "arrival": 101.43957534483937
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 1.9463881201512567
+        },
+        {
+          "turn": "left",
+          "arrival": 23.031846838993584
+        },
+        {
+          "turn": "straight",
+          "arrival": 86.43762369145125
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 82.08499505644626
+        },
+        {
+          "turn": "right",
+          "arrival": 84.86034764441519
+        },
+        {
+          "turn": "right",
+          "arrival": 108.1527550829502
+        },
+        {
+          "turn": "straight",
+          "arrival": 109.81517515122677
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 44.48459057175101
+        },
+        {
+          "turn": "straight",
+          "arrival": 60.26592386945237
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.37494545712397
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 43.157354157701015
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.950055301472645
+        },
+        {
+          "turn": "straight",
+          "arrival": 91.60327507995838
+        },
+        {
+          "turn": "straight",
+          "arrival": 95.39235985001602
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 2.00713771231559
+        },
+        {
+          "turn": "left",
+          "arrival": 7.254014269562266
+        },
+        {
+          "turn": "straight",
+          "arrival": 12.841971443339148
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.9161778843187
+        },
+        {
+          "turn": "left",
+          "arrival": 67.80026189375629
+        },
+        {
+          "turn": "straight",
+          "arrival": 76.40976906667665
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 1.8878120243063679
+        },
+        {
+          "turn": "straight",
+          "arrival": 5.587436489009194
+        },
+        {
+          "turn": "straight",
+          "arrival": 18.289369222097193
+        },
+        {
+          "turn": "straight",
+          "arrival": 20.18803751418492
+        },
+        {
+          "turn": "right",
+          "arrival": 96.33799461840252
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 10.475667882613934
+        },
+        {
+          "turn": "left",
+          "arrival": 39.86606583739523
+        },
+        {
+          "turn": "left",
+          "arrival": 53.36830379955544
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 6.443571833687232
+        },
+        {
+          "turn": "straight",
+          "arrival": 30.203968534668345
+        },
+        {
+          "turn": "right",
+          "arrival": 70.4443324901386
+        },
+        {
+          "turn": "straight",
+          "arrival": 72.62024918407707
+        },
+        {
+          "turn": "straight",
+          "arrival": 103.64618127218299
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 9.844561160777827
+        },
+        {
+          "turn": "left",
+          "arrival": 33.115424592288434
+        },
+        {
+          "turn": "left",
+          "arrival": 38.00138744178434
+        },
+        {
+          "turn": "straight",
+          "arrival": 82.23791901534678
+        },
+        {
+          "turn": "straight",
+          "arrival": 114.36055337835552
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 37.70199374345297
+        },
+        {
+          "turn": "right",
+          "arrival": 38.47981864501052
+        },
+        {
+          "turn": "straight",
+          "arrival": 45.12663627889765
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 21.522540386408288
+        },
+        {
+          "turn": "left",
+          "arrival": 32.208815657905284
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 40.16834684963484
+        },
+        {
+          "turn": "right",
+          "arrival": 88.18492385294238
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 3.151428481595664
+        },
+        {
+          "turn": "straight",
+          "arrival": 35.913226749703504
+        },
+        {
+          "turn": "straight",
+          "arrival": 54.94339594868335
+        },
+        {
+          "turn": "straight",
+          "arrival": 92.66008849616279
+        },
+        {
+          "turn": "left",
+          "arrival": 93.50029267492846
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 3.5550790734198134
+        },
+        {
+          "turn": "right",
+          "arrival": 13.666538833439773
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.28854150744812
+        },
+        {
+          "turn": "straight",
+          "arrival": 27.376606782505984
+        },
+        {
+          "turn": "straight",
+          "arrival": 46.06154568994873
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 31.048604448438653
+        },
+        {
+          "turn": "straight",
+          "arrival": 92.27448575040486
+        },
+        {
+          "turn": "left",
+          "arrival": 101.90160096562917
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 42.23819093005461
+        },
+        {
+          "turn": "right",
+          "arrival": 80.75731828746487
+        },
+        {
+          "turn": "right",
+          "arrival": 95.94028282640517
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 37.42684126770497
+        },
+        {
+          "turn": "straight",
+          "arrival": 61.9192682276248
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 14.143398319398806
+        },
+        {
+          "turn": "straight",
+          "arrival": 41.796035596277584
+        },
+        {
+          "turn": "straight",
+          "arrival": 44.89434813660457
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.21238500597346
+        },
+        {
+          "turn": "straight",
+          "arrival": 90.279059443259
+        },
+        {
+          "turn": "straight",
+          "arrival": 95.72226252376842
+        },
+        {
+          "turn": "straight",
+          "arrival": 110.24190957649157
+        },
+        {
+          "turn": "straight",
+          "arrival": 119.72432704975841
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 30.321802191731
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.63998175800852
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 23.64891301770546
+        },
+        {
+          "turn": "straight",
+          "arrival": 110.46570536052691
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.01551460807396
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 8.060920804975101
+        },
+        {
+          "turn": "left",
+          "arrival": 8.875816269874615
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.366431034039437
+        },
+        {
+          "turn": "left",
+          "arrival": 71.63649951395922
+        },
+        {
+          "turn": "straight",
+          "arrival": 88.48660434553646
+        },
+        {
+          "turn": "left",
+          "arrival": 115.88601332565939
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 46.66029364268485
+        },
+        {
+          "turn": "right",
+          "arrival": 64.12408814425406
+        },
+        {
+          "turn": "right",
+          "arrival": 94.8865100459111
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 25.18538011077289
+        },
+        {
+          "turn": "left",
+          "arrival": 61.873616650523886
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.71183249844636
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.53263939925503
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 104.04571085205342
+        },
+        {
+          "turn": "straight",
+          "arrival": 114.22103405855604
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 17.549213210995358
+        },
+        {
+          "turn": "straight",
+          "arrival": 37.749601759301314
+        },
+        {
+          "turn": "left",
+          "arrival": 96.6528592044334
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 3.923410422968492
+        },
+        {
+          "turn": "straight",
+          "arrival": 12.289972665299796
+        },
+        {
+          "turn": "straight",
+          "arrival": 58.73504710987653
+        },
+        {
+          "turn": "right",
+          "arrival": 104.97718155322612
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.65949072979278
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 38.8384339025618
+        },
+        {
+          "turn": "straight",
+          "arrival": 91.200495707077
+        },
+        {
+          "turn": "straight",
+          "arrival": 93.68882369159583
+        },
+        {
+          "turn": "straight",
+          "arrival": 95.48135119774143
+        },
+        {
+          "turn": "left",
+          "arrival": 103.46395505970291
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 19.917794122831104
+        },
+        {
+          "turn": "straight",
+          "arrival": 45.02067934154724
+        },
+        {
+          "turn": "straight",
+          "arrival": 65.6772642534378
+        },
+        {
+          "turn": "straight",
+          "arrival": 114.03048946384591
+        },
+        {
+          "turn": "straight",
+          "arrival": 114.287681452647
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 59.365793706658636
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.58950909989969
+        },
+        {
+          "turn": "straight",
+          "arrival": 68.72568647343515
+        },
+        {
+          "turn": "straight",
+          "arrival": 68.97672538492974
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 20.070418491367054
+        },
+        {
+          "turn": "straight",
+          "arrival": 82.16360046719838
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 57.216804991309694
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.23830871285816
+        },
+        {
+          "turn": "straight",
+          "arrival": 75.14154265870728
+        },
+        {
+          "turn": "left",
+          "arrival": 90.29347758575429
+        },
+        {
+          "turn": "straight",
+          "arrival": 118.42590394118267
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 44.10740275471418
+        },
+        {
+          "turn": "right",
+          "arrival": 70.48361963111094
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.28372013465328
+        },
+        {
+          "turn": "right",
+          "arrival": 111.53194504170261
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 1.1144337130152193
+        },
+        {
+          "turn": "straight",
+          "arrival": 33.23611883338145
+        },
+        {
+          "turn": "left",
+          "arrival": 110.70951467198329
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 10.719729719248452
+        },
+        {
+          "turn": "straight",
+          "arrival": 19.077295548698324
+        },
+        {
+          "turn": "straight",
+          "arrival": 46.306268971631226
+        },
+        {
+          "turn": "straight",
+          "arrival": 78.6582274060242
+        },
+        {
+          "turn": "right",
+          "arrival": 103.2976804724097
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 6.214473005838599
+        },
+        {
+          "turn": "straight",
+          "arrival": 62.12989533566849
+        },
+        {
+          "turn": "left",
+          "arrival": 75.3696046009083
+        },
+        {
+          "turn": "straight",
+          "arrival": 91.5271125474703
+        },
+        {
+          "turn": "left",
+          "arrival": 101.74705253279508
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 78.55055573025528
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 76.98913782203806
+        },
+        {
+          "turn": "left",
+          "arrival": 103.195502952258
+        },
+        {
+          "turn": "left",
+          "arrival": 107.29855896462672
+        },
+        {
+          "turn": "left",
+          "arrival": 119.02058865848043
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 75.42848352726912
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.54037295690398
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.58984526639169
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 21.52132203267668
+        },
+        {
+          "turn": "straight",
+          "arrival": 27.408530778390126
+        },
+        {
+          "turn": "straight",
+          "arrival": 29.346174042804414
+        },
+        {
+          "turn": "left",
+          "arrival": 59.56955190272587
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 0.1754448642693296
+        },
+        {
+          "turn": "right",
+          "arrival": 8.271172532729413
+        },
+        {
+          "turn": "straight",
+          "arrival": 24.0805384143547
+        },
+        {
+          "turn": "right",
+          "arrival": 26.941837658109073
+        },
+        {
+          "turn": "straight",
+          "arrival": 54.6237333215313
+        },
+        {
+          "turn": "right",
+          "arrival": 73.47561533048666
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.84110579265896
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 0.7653459302164878
+        },
+        {
+          "turn": "left",
+          "arrival": 1.5197965871399033
+        },
+        {
+          "turn": "left",
+          "arrival": 10.031648853337959
+        },
+        {
+          "turn": "straight",
+          "arrival": 29.33757044632386
+        },
+        {
+          "turn": "left",
+          "arrival": 64.366820746735
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 11.163196602970586
+        },
+        {
+          "turn": "straight",
+          "arrival": 76.31302074155866
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 24.623324748707844
+        },
+        {
+          "turn": "straight",
+          "arrival": 44.624331706998284
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.671202869659915
+        },
+        {
+          "turn": "straight",
+          "arrival": 92.57163485875496
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 39.27611060713427
+        },
+        {
+          "turn": "straight",
+          "arrival": 99.11963946630394
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 21.4753120522142
+        },
+        {
+          "turn": "straight",
+          "arrival": 44.122533342817405
+        },
+        {
+          "turn": "left",
+          "arrival": 62.862505373840314
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.89560040871199
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 84.21727663482196
+        },
+        {
+          "turn": "right",
+          "arrival": 115.34220730652964
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 41.617214961987415
+        },
+        {
+          "turn": "straight",
+          "arrival": 46.31245175440919
+        },
+        {
+          "turn": "left",
+          "arrival": 72.19953437341059
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 36.21181844705629
+        },
+        {
+          "turn": "straight",
+          "arrival": 53.59559209173526
+        },
+        {
+          "turn": "straight",
+          "arrival": 63.5318750358518
+        },
+        {
+          "turn": "right",
+          "arrival": 84.54456115536976
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 12.01612047659491
+        },
+        {
+          "turn": "straight",
+          "arrival": 42.05773942767792
+        },
+        {
+          "turn": "left",
+          "arrival": 95.0211029999846
+        },
+        {
+          "turn": "straight",
+          "arrival": 100.40362088800032
+        },
+        {
+          "turn": "straight",
+          "arrival": 101.57770650949615
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.49177379371764
+        },
+        {
+          "turn": "straight",
+          "arrival": 112.40253522651051
+        },
+        {
+          "turn": "straight",
+          "arrival": 113.85457250655452
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 28.386135929095303
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.16983921686172
+        },
+        {
+          "turn": "straight",
+          "arrival": 86.03251592289793
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 79.863800336972
+        },
+        {
+          "turn": "straight",
+          "arrival": 84.41434595038962
+        },
+        {
+          "turn": "straight",
+          "arrival": 91.68596684610132
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 2.6295475492286746
+        },
+        {
+          "turn": "right",
+          "arrival": 84.86195054835936
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 39.80807922890441
+        },
+        {
+          "turn": "straight",
+          "arrival": 99.45683730795017
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 21.06681211927809
+        },
+        {
+          "turn": "straight",
+          "arrival": 21.577904843744307
+        },
+        {
+          "turn": "right",
+          "arrival": 21.849810721625683
+        },
+        {
+          "turn": "right",
+          "arrival": 88.0793968038247
+        },
+        {
+          "turn": "right",
+          "arrival": 112.22472385098538
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 41.01698413798677
+        },
+        {
+          "turn": "straight",
+          "arrival": 90.26821705383445
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 2.4093597996684
+        },
+        {
+          "turn": "right",
+          "arrival": 13.502261115112058
+        },
+        {
+          "turn": "right",
+          "arrival": 14.433824970651994
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.18574646504567
+        },
+        {
+          "turn": "right",
+          "arrival": 46.57189836177009
+        },
+        {
+          "turn": "right",
+          "arrival": 71.28366528625139
+        },
+        {
+          "turn": "straight",
+          "arrival": 96.98161888848155
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 54.15449029836898
+        },
+        {
+          "turn": "straight",
+          "arrival": 100.89565997163005
+        },
+        {
+          "turn": "straight",
+          "arrival": 116.65978540053082
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 50.804987917871934
+        },
+        {
+          "turn": "right",
+          "arrival": 65.64555103346777
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.66360445688285
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 47.37652382502901
+        },
+        {
+          "turn": "straight",
+          "arrival": 56.82847813704825
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 35.68807772178794
+        },
+        {
+          "turn": "right",
+          "arrival": 53.49303249533497
+        },
+        {
+          "turn": "straight",
+          "arrival": 62.362581305048316
+        },
+        {
+          "turn": "straight",
+          "arrival": 109.29653828779131
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 6.426689119271458
+        },
+        {
+          "turn": "straight",
+          "arrival": 11.638427697779857
+        },
+        {
+          "turn": "left",
+          "arrival": 18.4307921420081
+        },
+        {
+          "turn": "straight",
+          "arrival": 35.345933875945775
+        },
+        {
+          "turn": "straight",
+          "arrival": 51.75880009750329
+        },
+        {
+          "turn": "left",
+          "arrival": 58.69161745447887
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 27.14907363392003
+        },
+        {
+          "turn": "right",
+          "arrival": 68.72571487574625
+        },
+        {
+          "turn": "right",
+          "arrival": 119.67230721345307
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 56.66636188872998
+        },
+        {
+          "turn": "left",
+          "arrival": 63.5806205555997
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.73756864700741
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.67908844927078
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 39.91553362998316
+        },
+        {
+          "turn": "right",
+          "arrival": 42.63400753437989
+        },
+        {
+          "turn": "straight",
+          "arrival": 79.26363884173547
+        },
+        {
+          "turn": "straight",
+          "arrival": 119.6962919493955
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 46.026057156923244
+        },
+        {
+          "turn": "straight",
+          "arrival": 58.74925087560197
+        },
+        {
+          "turn": "left",
+          "arrival": 83.22296966044766
+        },
+        {
+          "turn": "left",
+          "arrival": 87.18598518970842
+        },
+        {
+          "turn": "straight",
+          "arrival": 88.0891943173825
+        },
+        {
+          "turn": "straight",
+          "arrival": 98.86125956092924
+        },
+        {
+          "turn": "straight",
+          "arrival": 119.08174234655193
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 11.712367657525121
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 113.63080562327417
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 0.5656201708792619
+        },
+        {
+          "turn": "right",
+          "arrival": 2.1499350757135227
+        },
+        {
+          "turn": "right",
+          "arrival": 17.991515562498783
+        },
+        {
+          "turn": "right",
+          "arrival": 43.11010636399588
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.65127538253118
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.33982937361753
+        },
+        {
+          "turn": "straight",
+          "arrival": 94.57085241691192
+        },
+        {
+          "turn": "straight",
+          "arrival": 106.556885260445
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 27.410194180299058
+        },
+        {
+          "turn": "straight",
+          "arrival": 37.966014917845065
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 46.592990520655
+        },
+        {
+          "turn": "straight",
+          "arrival": 60.87778267281784
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.83934081560398
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 57.96955876385985
+        },
+        {
+          "turn": "left",
+          "arrival": 77.32041498824384
+        },
+        {
+          "turn": "straight",
+          "arrival": 79.43638990054735
+        },
+        {
+          "turn": "straight",
+          "arrival": 82.76996980529113
+        },
+        {
+          "turn": "left",
+          "arrival": 100.22785983158894
+        },
+        {
+          "turn": "left",
+          "arrival": 102.23984700893858
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 13.681506322109751
+        },
+        {
+          "turn": "straight",
+          "arrival": 48.030027117410235
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.18529651193715
+        },
+        {
+          "turn": "straight",
+          "arrival": 109.24279529544172
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 15.901389148387196
+        },
+        {
+          "turn": "straight",
+          "arrival": 43.99097416798182
+        },
+        {
+          "turn": "straight",
+          "arrival": 49.923325995707586
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.42304350650909
+        },
+        {
+          "turn": "left",
+          "arrival": 93.35506999164275
+        },
+        {
+          "turn": "straight",
+          "arrival": 93.54314671013236
+        },
+        {
+          "turn": "left",
+          "arrival": 102.26984228840516
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 42.903288508529315
+        },
+        {
+          "turn": "right",
+          "arrival": 84.412410029551
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 44.714658392933856
+        },
+        {
+          "turn": "straight",
+          "arrival": 50.25909021257107
+        },
+        {
+          "turn": "straight",
+          "arrival": 84.54818117767476
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 55.71328286833781
+        },
+        {
+          "turn": "straight",
+          "arrival": 79.39974913088665
+        },
+        {
+          "turn": "straight",
+          "arrival": 88.62482349506115
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 65.67388616747107
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.35877899505267
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 5.5166790455604
+        },
+        {
+          "turn": "straight",
+          "arrival": 28.140631916586756
+        },
+        {
+          "turn": "straight",
+          "arrival": 95.98789163387401
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 25.870740524273515
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 54.88654523353876
+        },
+        {
+          "turn": "right",
+          "arrival": 66.05946836768149
+        },
+        {
+          "turn": "right",
+          "arrival": 77.20784598681755
+        },
+        {
+          "turn": "straight",
+          "arrival": 79.40559154151556
+        },
+        {
+          "turn": "straight",
+          "arrival": 89.42867575887412
+        },
+        {
+          "turn": "straight",
+          "arrival": 106.81330785900748
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 16.853902478669866
+        },
+        {
+          "turn": "left",
+          "arrival": 39.836715066567805
+        },
+        {
+          "turn": "left",
+          "arrival": 40.96285374922064
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.09135136978823
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.65935940913333
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 0.52051532003075
+        },
+        {
+          "turn": "right",
+          "arrival": 12.93188967449904
+        },
+        {
+          "turn": "right",
+          "arrival": 25.165523550660232
+        },
+        {
+          "turn": "straight",
+          "arrival": 47.74439957463163
+        },
+        {
+          "turn": "straight",
+          "arrival": 62.29196148196146
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 85.42492276741741
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 17.838534270852513
+        },
+        {
+          "turn": "right",
+          "arrival": 84.25152639119824
+        },
+        {
+          "turn": "straight",
+          "arrival": 96.57561969760522
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 4.299831888494796
+        },
+        {
+          "turn": "left",
+          "arrival": 28.907018003667737
+        },
+        {
+          "turn": "straight",
+          "arrival": 30.514717350171594
+        },
+        {
+          "turn": "left",
+          "arrival": 60.49321432237973
+        },
+        {
+          "turn": "left",
+          "arrival": 104.32987615353215
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 43.60109730837732
+        },
+        {
+          "turn": "straight",
+          "arrival": 85.90962003397863
+        },
+        {
+          "turn": "right",
+          "arrival": 102.79070690136206
+        },
+        {
+          "turn": "straight",
+          "arrival": 110.92450485378464
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 33.49346955710526
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 17.439205395935463
+        },
+        {
+          "turn": "straight",
+          "arrival": 58.86611293844119
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 18.444406028355573
+        },
+        {
+          "turn": "straight",
+          "arrival": 62.47275447980445
+        },
+        {
+          "turn": "straight",
+          "arrival": 88.20953832314626
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.06761792887202
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 0.6774163221384155
+        },
+        {
+          "turn": "straight",
+          "arrival": 28.51145670794454
+        },
+        {
+          "turn": "straight",
+          "arrival": 65.16961860987777
+        },
+        {
+          "turn": "straight",
+          "arrival": 85.24232725686304
+        },
+        {
+          "turn": "straight",
+          "arrival": 90.02220224040644
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 1.555828520956597
+        },
+        {
+          "turn": "left",
+          "arrival": 17.571406816883517
+        },
+        {
+          "turn": "left",
+          "arrival": 90.4312737654198
+        },
+        {
+          "turn": "straight",
+          "arrival": 93.13760941467986
+        },
+        {
+          "turn": "straight",
+          "arrival": 94.08377382846017
+        },
+        {
+          "turn": "straight",
+          "arrival": 106.00760866405409
+        },
+        {
+          "turn": "straight",
+          "arrival": 111.17817734025354
+        },
+        {
+          "turn": "straight",
+          "arrival": 117.76025954818407
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 21.29110781859158
+        },
+        {
+          "turn": "straight",
+          "arrival": 35.22892286042446
+        },
+        {
+          "turn": "straight",
+          "arrival": 58.41656509982198
+        },
+        {
+          "turn": "right",
+          "arrival": 96.99657351920352
+        },
+        {
+          "turn": "straight",
+          "arrival": 109.91189163584106
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 73.93306005123439
+        },
+        {
+          "turn": "straight",
+          "arrival": 109.37836524884862
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 13.766634168271832
+        },
+        {
+          "turn": "right",
+          "arrival": 64.82847755310738
+        },
+        {
+          "turn": "straight",
+          "arrival": 80.90921826470081
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 0.6035806888806139
+        },
+        {
+          "turn": "left",
+          "arrival": 11.784288165644634
+        },
+        {
+          "turn": "straight",
+          "arrival": 42.92401664976574
+        },
+        {
+          "turn": "straight",
+          "arrival": 76.97072957779676
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 25.20634688284687
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.36094166308457
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 22.07912673424598
+        },
+        {
+          "turn": "straight",
+          "arrival": 34.216457265182534
+        },
+        {
+          "turn": "left",
+          "arrival": 58.303347632866476
+        },
+        {
+          "turn": "left",
+          "arrival": 66.97010463813729
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 33.20158020267789
+        },
+        {
+          "turn": "straight",
+          "arrival": 48.91593341949517
+        },
+        {
+          "turn": "straight",
+          "arrival": 61.66736401529202
+        },
+        {
+          "turn": "right",
+          "arrival": 75.23196911705
+        },
+        {
+          "turn": "straight",
+          "arrival": 100.27980932944429
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 13.754705054782015
+        },
+        {
+          "turn": "straight",
+          "arrival": 49.518539523149755
+        },
+        {
+          "turn": "left",
+          "arrival": 66.42290253171348
+        },
+        {
+          "turn": "straight",
+          "arrival": 67.86624094861318
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 20.23674130871762
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.54180512907323
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.20061913922366
+        },
+        {
+          "turn": "straight",
+          "arrival": 72.78790094241967
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 4.546357769537774
+        },
+        {
+          "turn": "straight",
+          "arrival": 64.01613165724193
+        },
+        {
+          "turn": "straight",
+          "arrival": 89.62689908091146
+        },
+        {
+          "turn": "left",
+          "arrival": 115.21611180965215
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 37.96850951036002
+        },
+        {
+          "turn": "straight",
+          "arrival": 42.8566030814187
+        },
+        {
+          "turn": "straight",
+          "arrival": 47.41359098743412
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 49.753642211412746
+        },
+        {
+          "turn": "straight",
+          "arrival": 62.14622757529564
+        },
+        {
+          "turn": "straight",
+          "arrival": 101.95047274873701
+        },
+        {
+          "turn": "left",
+          "arrival": 103.04563864449591
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 12.3870015475776
+        },
+        {
+          "turn": "straight",
+          "arrival": 45.15945372522542
+        },
+        {
+          "turn": "straight",
+          "arrival": 81.0275311578643
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 9.250587088949622
+        },
+        {
+          "turn": "left",
+          "arrival": 19.96096395694581
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.428681097052113
+        },
+        {
+          "turn": "straight",
+          "arrival": 53.54645326068021
+        },
+        {
+          "turn": "left",
+          "arrival": 75.5448509865786
+        },
+        {
+          "turn": "left",
+          "arrival": 88.0253540453337
+        },
+        {
+          "turn": "left",
+          "arrival": 112.70103099238473
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 2.693524578514963
+        },
+        {
+          "turn": "right",
+          "arrival": 74.78540866939612
+        },
+        {
+          "turn": "straight",
+          "arrival": 110.68223338139367
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 25.9912101470262
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.76413706045433
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 69.43577219040696
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 7.543339369616304
+        },
+        {
+          "turn": "straight",
+          "arrival": 43.89823561236114
+        },
+        {
+          "turn": "straight",
+          "arrival": 60.22043813648901
+        },
+        {
+          "turn": "straight",
+          "arrival": 108.75642928778198
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 20.468014078763552
+        },
+        {
+          "turn": "straight",
+          "arrival": 43.83561335892572
+        },
+        {
+          "turn": "straight",
+          "arrival": 60.26007235997171
+        },
+        {
+          "turn": "right",
+          "arrival": 98.06841182802863
+        },
+        {
+          "turn": "right",
+          "arrival": 105.42107795436438
+        },
+        {
+          "turn": "straight",
+          "arrival": 110.1482332837374
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 10.421137508884497
+        },
+        {
+          "turn": "left",
+          "arrival": 11.182795896149514
+        },
+        {
+          "turn": "straight",
+          "arrival": 45.38536225449611
+        },
+        {
+          "turn": "straight",
+          "arrival": 62.37142146276895
+        },
+        {
+          "turn": "left",
+          "arrival": 62.725361162059016
+        },
+        {
+          "turn": "straight",
+          "arrival": 86.93936561136782
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 16.065972674952164
+        },
+        {
+          "turn": "straight",
+          "arrival": 27.538350765486022
+        },
+        {
+          "turn": "straight",
+          "arrival": 62.6453075593865
+        },
+        {
+          "turn": "right",
+          "arrival": 98.79065586208858
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 25.73497698456961
+        },
+        {
+          "turn": "straight",
+          "arrival": 33.9920001610747
+        },
+        {
+          "turn": "straight",
+          "arrival": 80.88292572146159
+        },
+        {
+          "turn": "straight",
+          "arrival": 88.4310648175674
+        },
+        {
+          "turn": "straight",
+          "arrival": 89.73770340958652
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 49.06140926087182
+        },
+        {
+          "turn": "straight",
+          "arrival": 52.6766458249483
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.2525938008324
+        },
+        {
+          "turn": "straight",
+          "arrival": 67.0912595584196
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 4.033122167551011
+        },
+        {
+          "turn": "straight",
+          "arrival": 19.28856109598607
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 92.90333810939902
+        },
+        {
+          "turn": "straight",
+          "arrival": 119.01584090048584
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 7.689654764317271
+        },
+        {
+          "turn": "left",
+          "arrival": 31.35634737161719
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 22.682521646144487
+        },
+        {
+          "turn": "right",
+          "arrival": 70.68577033694478
+        },
+        {
+          "turn": "right",
+          "arrival": 72.66132214334479
+        },
+        {
+          "turn": "straight",
+          "arrival": 80.35944556755702
+        },
+        {
+          "turn": "right",
+          "arrival": 85.39269980507774
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 40.795907330824846
+        },
+        {
+          "turn": "left",
+          "arrival": 73.65923703309029
+        },
+        {
+          "turn": "straight",
+          "arrival": 80.89236725338016
+        },
+        {
+          "turn": "left",
+          "arrival": 87.1366451648755
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 43.39227909992166
+        },
+        {
+          "turn": "straight",
+          "arrival": 44.54358424604011
+        },
+        {
+          "turn": "straight",
+          "arrival": 57.39840919344522
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 24.813435878641187
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.87992084364197
+        },
+        {
+          "turn": "straight",
+          "arrival": 96.01936726188424
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 18.71946821713907
+        },
+        {
+          "turn": "right",
+          "arrival": 28.45669830090543
+        },
+        {
+          "turn": "straight",
+          "arrival": 111.56566089745444
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 26.22793605415485
+        },
+        {
+          "turn": "straight",
+          "arrival": 47.87167639168909
+        },
+        {
+          "turn": "straight",
+          "arrival": 48.856155132864195
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.54618048494717
+        },
+        {
+          "turn": "left",
+          "arrival": 83.30302337655601
+        },
+        {
+          "turn": "straight",
+          "arrival": 84.0982262779865
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 21.944623575563433
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.0696409035653
+        },
+        {
+          "turn": "straight",
+          "arrival": 26.651133969577593
+        },
+        {
+          "turn": "straight",
+          "arrival": 103.24801565975424
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.59451980785866
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 68.56916618150993
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.78934817153674
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 30.938371778328047
+        },
+        {
+          "turn": "straight",
+          "arrival": 43.809358347349836
+        },
+        {
+          "turn": "right",
+          "arrival": 90.8967942056007
+        },
+        {
+          "turn": "right",
+          "arrival": 107.58285872950539
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 55.30015623747359
+        },
+        {
+          "turn": "left",
+          "arrival": 57.74755117760897
+        },
+        {
+          "turn": "straight",
+          "arrival": 75.94907590820937
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 9.626771667790074
+        },
+        {
+          "turn": "right",
+          "arrival": 116.67991259897364
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 13.24276206215564
+        },
+        {
+          "turn": "straight",
+          "arrival": 31.980429389166446
+        },
+        {
+          "turn": "left",
+          "arrival": 34.411469819424696
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.229546383489435
+        },
+        {
+          "turn": "straight",
+          "arrival": 85.79255795817183
+        },
+        {
+          "turn": "straight",
+          "arrival": 116.26019153773191
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 34.16122256081435
+        },
+        {
+          "turn": "straight",
+          "arrival": 46.69475526938645
+        },
+        {
+          "turn": "straight",
+          "arrival": 70.16362320153378
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.2528484537042
+        },
+        {
+          "turn": "straight",
+          "arrival": 92.54703996328014
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.85944821884128
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 18.257916614084294
+        },
+        {
+          "turn": "straight",
+          "arrival": 36.42874986877067
+        },
+        {
+          "turn": "straight",
+          "arrival": 95.61208606411634
+        },
+        {
+          "turn": "straight",
+          "arrival": 103.63891988995204
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 22.560075092448614
+        },
+        {
+          "turn": "right",
+          "arrival": 75.49971049568391
+        },
+        {
+          "turn": "straight",
+          "arrival": 119.75561353987194
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 23.063075151174335
+        },
+        {
+          "turn": "straight",
+          "arrival": 31.557633053549882
+        },
+        {
+          "turn": "straight",
+          "arrival": 44.56783959638804
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 14.635386742292491
+        },
+        {
+          "turn": "straight",
+          "arrival": 35.9532621584528
+        },
+        {
+          "turn": "straight",
+          "arrival": 84.05671175368467
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 42.662121037758794
+        },
+        {
+          "turn": "left",
+          "arrival": 58.541145830757586
+        },
+        {
+          "turn": "straight",
+          "arrival": 62.784064703188264
+        },
+        {
+          "turn": "straight",
+          "arrival": 95.09539173280882
+        },
+        {
+          "turn": "straight",
+          "arrival": 111.62532441708612
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 63.48249975501282
+        },
+        {
+          "turn": "straight",
+          "arrival": 84.79511747136712
+        },
+        {
+          "turn": "right",
+          "arrival": 87.02063193710266
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 10.968186276505559
+        },
+        {
+          "turn": "straight",
+          "arrival": 63.143042615243644
+        },
+        {
+          "turn": "left",
+          "arrival": 104.81913330966867
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 38.71200478953527
+        },
+        {
+          "turn": "right",
+          "arrival": 63.7364916399349
+        },
+        {
+          "turn": "straight",
+          "arrival": 89.53300515310244
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 38.483291316929666
+        },
+        {
+          "turn": "straight",
+          "arrival": 43.96248241131554
+        },
+        {
+          "turn": "straight",
+          "arrival": 64.06805723765513
+        },
+        {
+          "turn": "straight",
+          "arrival": 113.35241784086828
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 33.03893554299638
+        },
+        {
+          "turn": "straight",
+          "arrival": 54.489477575468854
+        },
+        {
+          "turn": "straight",
+          "arrival": 84.30604994169683
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.98265981045243
+        },
+        {
+          "turn": "straight",
+          "arrival": 98.64318195200143
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 11.850430397823875
+        },
+        {
+          "turn": "straight",
+          "arrival": 56.16709721179599
+        },
+        {
+          "turn": "left",
+          "arrival": 62.888372257254275
+        },
+        {
+          "turn": "straight",
+          "arrival": 68.0042080759645
+        },
+        {
+          "turn": "left",
+          "arrival": 86.92789894467488
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.95188470368372
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 63.0985635137294
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 31.50695718980937
+        },
+        {
+          "turn": "straight",
+          "arrival": 89.72143887231873
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 4.484591541399969
+        },
+        {
+          "turn": "right",
+          "arrival": 6.495353852018764
+        },
+        {
+          "turn": "straight",
+          "arrival": 20.310631681369465
+        },
+        {
+          "turn": "right",
+          "arrival": 119.2094411465447
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 8.597277640930185
+        },
+        {
+          "turn": "straight",
+          "arrival": 31.798581511154364
+        },
+        {
+          "turn": "straight",
+          "arrival": 80.83622908435335
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 30.74926061428269
+        },
+        {
+          "turn": "straight",
+          "arrival": 47.43825642965594
+        },
+        {
+          "turn": "right",
+          "arrival": 82.24310729547213
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 11.31445530450609
+        },
+        {
+          "turn": "straight",
+          "arrival": 13.50358456827481
+        },
+        {
+          "turn": "straight",
+          "arrival": 25.778737535226718
+        },
+        {
+          "turn": "straight",
+          "arrival": 39.21979531860495
+        },
+        {
+          "turn": "straight",
+          "arrival": 67.5773643365141
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 22.858768988315784
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.0097610874143
+        },
+        {
+          "turn": "right",
+          "arrival": 91.70212414852455
+        },
+        {
+          "turn": "right",
+          "arrival": 105.5751003180221
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.39821307576013
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 15.862685444505367
+        },
+        {
+          "turn": "straight",
+          "arrival": 52.8556108875968
+        },
+        {
+          "turn": "straight",
+          "arrival": 58.5931678048121
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.15759340047498
+        },
+        {
+          "turn": "straight",
+          "arrival": 88.11191446530958
+        },
+        {
+          "turn": "straight",
+          "arrival": 91.44395035642751
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 26.650275378169717
+        },
+        {
+          "turn": "right",
+          "arrival": 93.61462896101716
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 23.865024000988132
+        },
+        {
+          "turn": "straight",
+          "arrival": 38.111710702946034
+        },
+        {
+          "turn": "left",
+          "arrival": 88.7497956048292
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 20.4383576453716
+        },
+        {
+          "turn": "right",
+          "arrival": 27.069923715330514
+        },
+        {
+          "turn": "right",
+          "arrival": 29.68705676997015
+        },
+        {
+          "turn": "straight",
+          "arrival": 54.00738847660151
+        },
+        {
+          "turn": "straight",
+          "arrival": 58.15945822009987
+        },
+        {
+          "turn": "right",
+          "arrival": 69.96059319916989
+        },
+        {
+          "turn": "right",
+          "arrival": 79.24473905978535
+        },
+        {
+          "turn": "right",
+          "arrival": 105.61582801302912
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 24.45616234519262
+        },
+        {
+          "turn": "left",
+          "arrival": 91.49369804795586
+        },
+        {
+          "turn": "left",
+          "arrival": 103.51051938960818
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 1.6479951232117651
+        },
+        {
+          "turn": "straight",
+          "arrival": 28.843296980469123
+        },
+        {
+          "turn": "right",
+          "arrival": 38.0995453010327
+        },
+        {
+          "turn": "straight",
+          "arrival": 119.48229602784104
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 2.289398872103301
+        },
+        {
+          "turn": "left",
+          "arrival": 42.645375989584
+        },
+        {
+          "turn": "left",
+          "arrival": 53.900302239269394
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.79529820807981
+        },
+        {
+          "turn": "straight",
+          "arrival": 71.56328311459649
+        },
+        {
+          "turn": "straight",
+          "arrival": 75.09508364589156
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 47.20797813927297
+        },
+        {
+          "turn": "straight",
+          "arrival": 74.76503914289795
+        },
+        {
+          "turn": "right",
+          "arrival": 93.49294619673513
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 10.53540205647617
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 53.16053844595824
+        },
+        {
+          "turn": "right",
+          "arrival": 117.57514212790238
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 21.572567026672786
+        },
+        {
+          "turn": "straight",
+          "arrival": 34.941523468095546
+        },
+        {
+          "turn": "left",
+          "arrival": 36.967464664147755
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.62947436859623
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 9.537051637299005
+        },
+        {
+          "turn": "straight",
+          "arrival": 28.545402482337213
+        },
+        {
+          "turn": "right",
+          "arrival": 54.19315110763945
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.715312888095724
+        },
+        {
+          "turn": "straight",
+          "arrival": 61.93520197137582
+        },
+        {
+          "turn": "right",
+          "arrival": 62.244318310501406
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 0.4239478312972089
+        },
+        {
+          "turn": "straight",
+          "arrival": 7.9363589081867225
+        },
+        {
+          "turn": "straight",
+          "arrival": 10.942948860673546
+        },
+        {
+          "turn": "left",
+          "arrival": 49.030699221377525
+        },
+        {
+          "turn": "left",
+          "arrival": 67.85898942170029
+        },
+        {
+          "turn": "straight",
+          "arrival": 104.25822449738446
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 10.821559354736463
+        },
+        {
+          "turn": "right",
+          "arrival": 48.58401218910341
+        },
+        {
+          "turn": "straight",
+          "arrival": 49.627116611713994
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.0415062730971
+        },
+        {
+          "turn": "straight",
+          "arrival": 70.83785703475849
+        },
+        {
+          "turn": "straight",
+          "arrival": 85.4422953571992
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 62.85807672793786
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 26.706505485504856
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.36165967567556
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 47.298085044179736
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 49.21816388536276
+        },
+        {
+          "turn": "straight",
+          "arrival": 56.861630503099605
+        },
+        {
+          "turn": "straight",
+          "arrival": 75.17434195938351
+        },
+        {
+          "turn": "right",
+          "arrival": 82.54352449616398
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 69.2877170611858
+        },
+        {
+          "turn": "left",
+          "arrival": 75.05528908675839
+        },
+        {
+          "turn": "straight",
+          "arrival": 92.22143796023232
+        },
+        {
+          "turn": "left",
+          "arrival": 105.86014379323268
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 56.49802130569141
+        },
+        {
+          "turn": "straight",
+          "arrival": 67.79311691966427
+        },
+        {
+          "turn": "straight",
+          "arrival": 86.88889654456462
+        },
+        {
+          "turn": "straight",
+          "arrival": 118.03425226382086
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 13.11626813235915
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.18079848431602
+        },
+        {
+          "turn": "left",
+          "arrival": 49.68493674292462
+        },
+        {
+          "turn": "straight",
+          "arrival": 76.87419730531019
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 18.646354640007452
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.48546921776998
+        },
+        {
+          "turn": "straight",
+          "arrival": 89.92017708328332
+        },
+        {
+          "turn": "right",
+          "arrival": 117.51091914792845
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 13.660411553832095
+        },
+        {
+          "turn": "left",
+          "arrival": 17.444929945912314
+        },
+        {
+          "turn": "straight",
+          "arrival": 36.932705909267646
+        },
+        {
+          "turn": "left",
+          "arrival": 63.24632800855449
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.71479770180673
+        },
+        {
+          "turn": "left",
+          "arrival": 109.93956638082902
+        },
+        {
+          "turn": "left",
+          "arrival": 110.44616379234434
+        },
+        {
+          "turn": "straight",
+          "arrival": 116.35359509227118
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 73.06135283213672
+        },
+        {
+          "turn": "straight",
+          "arrival": 94.07868398502465
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 19.360227291664916
+        },
+        {
+          "turn": "straight",
+          "arrival": 91.01303854047403
+        },
+        {
+          "turn": "straight",
+          "arrival": 99.84513238873697
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 96.95764319292356
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 37.31775814205767
+        },
+        {
+          "turn": "left",
+          "arrival": 46.03195672076929
+        },
+        {
+          "turn": "left",
+          "arrival": 56.02510829793144
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 65.10344566433263
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.73798321138447
+        },
+        {
+          "turn": "right",
+          "arrival": 68.134716270979
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.24584791449509
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 48.68231786866743
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 8.549144546429117
+        },
+        {
+          "turn": "straight",
+          "arrival": 13.735247268012198
+        },
+        {
+          "turn": "straight",
+          "arrival": 24.066661470424208
+        },
+        {
+          "turn": "right",
+          "arrival": 40.81390850869128
+        },
+        {
+          "turn": "right",
+          "arrival": 86.94847587038804
+        },
+        {
+          "turn": "straight",
+          "arrival": 92.15298177178094
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 63.01205036251392
+        },
+        {
+          "turn": "left",
+          "arrival": 69.30718012913508
+        },
+        {
+          "turn": "left",
+          "arrival": 85.18080177750726
+        },
+        {
+          "turn": "left",
+          "arrival": 93.3348469752953
+        },
+        {
+          "turn": "straight",
+          "arrival": 113.19333824904592
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 6.08714204735219
+        },
+        {
+          "turn": "straight",
+          "arrival": 17.19540575398331
+        },
+        {
+          "turn": "straight",
+          "arrival": 47.049230203050136
+        },
+        {
+          "turn": "straight",
+          "arrival": 54.39396812394863
+        },
+        {
+          "turn": "straight",
+          "arrival": 80.53488503484503
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 42.172898482071226
+        },
+        {
+          "turn": "left",
+          "arrival": 54.670100489608956
+        },
+        {
+          "turn": "left",
+          "arrival": 84.56131124149682
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 27.803305638535264
+        },
+        {
+          "turn": "right",
+          "arrival": 37.49287813812383
+        },
+        {
+          "turn": "right",
+          "arrival": 95.88303340911554
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 98.04403079055255
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 13.718743257668432
+        },
+        {
+          "turn": "right",
+          "arrival": 73.37889074065237
+        },
+        {
+          "turn": "right",
+          "arrival": 79.3057672523407
+        },
+        {
+          "turn": "right",
+          "arrival": 84.40249493124806
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 1.3923302934282944
+        },
+        {
+          "turn": "straight",
+          "arrival": 56.984569554688505
+        },
+        {
+          "turn": "straight",
+          "arrival": 116.86700774643539
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 7.48926702370305
+        },
+        {
+          "turn": "right",
+          "arrival": 16.46643219194671
+        },
+        {
+          "turn": "straight",
+          "arrival": 35.96824011529362
+        },
+        {
+          "turn": "right",
+          "arrival": 49.30053763976494
+        },
+        {
+          "turn": "straight",
+          "arrival": 78.95120361751476
+        },
+        {
+          "turn": "right",
+          "arrival": 84.26662587240088
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 48.09797697413202
+        },
+        {
+          "turn": "straight",
+          "arrival": 69.63225377935133
+        },
+        {
+          "turn": "straight",
+          "arrival": 97.66988458698378
+        },
+        {
+          "turn": "straight",
+          "arrival": 98.64276627768537
+        },
+        {
+          "turn": "straight",
+          "arrival": 117.3880139331803
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 48.723918540684906
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.86865995341367
+        },
+        {
+          "turn": "straight",
+          "arrival": 86.13494662873175
+        },
+        {
+          "turn": "right",
+          "arrival": 103.34974075753323
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 69.35262009336675
+        },
+        {
+          "turn": "left",
+          "arrival": 71.79110179133232
+        },
+        {
+          "turn": "left",
+          "arrival": 100.79552240720585
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 46.16576613960316
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.315417687585146
+        },
+        {
+          "turn": "straight",
+          "arrival": 65.34322562289222
+        },
+        {
+          "turn": "right",
+          "arrival": 74.78981779199603
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 14.18245304674938
+        },
+        {
+          "turn": "left",
+          "arrival": 46.63085132776624
+        },
+        {
+          "turn": "straight",
+          "arrival": 79.75270037992341
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 0.3968832353566887
+        },
+        {
+          "turn": "straight",
+          "arrival": 64.15515558720416
+        },
+        {
+          "turn": "right",
+          "arrival": 91.25436970577367
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 2.844056742844483
+        },
+        {
+          "turn": "straight",
+          "arrival": 4.28379463531916
+        },
+        {
+          "turn": "left",
+          "arrival": 21.413060407772512
+        },
+        {
+          "turn": "left",
+          "arrival": 46.65210401683386
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.53705660044953
+        },
+        {
+          "turn": "left",
+          "arrival": 78.76735546933807
+        },
+        {
+          "turn": "left",
+          "arrival": 84.96901269954026
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 26.206379783719438
+        },
+        {
+          "turn": "right",
+          "arrival": 83.47843603872924
+        },
+        {
+          "turn": "right",
+          "arrival": 83.50587343284909
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 2.251775172214856
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 10.183498160732523
+        },
+        {
+          "turn": "straight",
+          "arrival": 19.43592379754599
+        },
+        {
+          "turn": "right",
+          "arrival": 21.351538396395586
+        },
+        {
+          "turn": "straight",
+          "arrival": 64.07280561174795
+        },
+        {
+          "turn": "straight",
+          "arrival": 68.95683020684457
+        },
+        {
+          "turn": "right",
+          "arrival": 81.8202882732404
+        },
+        {
+          "turn": "right",
+          "arrival": 83.06657901709511
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 76.65366094122268
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 4.445121591644083
+        },
+        {
+          "turn": "straight",
+          "arrival": 12.394453914339149
+        },
+        {
+          "turn": "straight",
+          "arrival": 52.32692009560412
+        },
+        {
+          "turn": "right",
+          "arrival": 68.06926626143223
+        },
+        {
+          "turn": "right",
+          "arrival": 88.92617992700252
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 13.701561835834525
+        },
+        {
+          "turn": "straight",
+          "arrival": 21.529542737725635
+        },
+        {
+          "turn": "straight",
+          "arrival": 40.26044732024242
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.38330039160824
+        },
+        {
+          "turn": "left",
+          "arrival": 86.06385067095246
+        },
+        {
+          "turn": "straight",
+          "arrival": 88.25516683601481
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.40950098809584
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 41.74242802153755
+        },
+        {
+          "turn": "straight",
+          "arrival": 103.52772721153042
+        },
+        {
+          "turn": "straight",
+          "arrival": 108.8614653808049
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 1.7238245954355635
+        },
+        {
+          "turn": "left",
+          "arrival": 14.100938725415034
+        },
+        {
+          "turn": "left",
+          "arrival": 20.16610237624864
+        },
+        {
+          "turn": "left",
+          "arrival": 94.25904216980805
+        },
+        {
+          "turn": "straight",
+          "arrival": 94.92627547445896
+        },
+        {
+          "turn": "straight",
+          "arrival": 96.53442371127707
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 29.23735313922959
+        },
+        {
+          "turn": "right",
+          "arrival": 92.43975397330306
+        },
+        {
+          "turn": "straight",
+          "arrival": 100.37125107469474
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 23.24627916158358
+        },
+        {
+          "turn": "straight",
+          "arrival": 54.742151151203416
+        },
+        {
+          "turn": "left",
+          "arrival": 83.22042328781944
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 23.850167465585542
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 1.8756391521933047
+        },
+        {
+          "turn": "straight",
+          "arrival": 24.739226230759485
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 12.530531949177579
+        },
+        {
+          "turn": "straight",
+          "arrival": 14.496292748320041
+        },
+        {
+          "turn": "straight",
+          "arrival": 21.1588580844637
+        },
+        {
+          "turn": "straight",
+          "arrival": 28.71045107074643
+        },
+        {
+          "turn": "straight",
+          "arrival": 40.11535550667584
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 19.77194602126723
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.02838559506444
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 22.687279042258417
+        },
+        {
+          "turn": "straight",
+          "arrival": 49.984399053074064
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.75350318444832
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 18.059768266969737
+        },
+        {
+          "turn": "left",
+          "arrival": 21.87366125572272
+        },
+        {
+          "turn": "left",
+          "arrival": 28.54863892518043
+        },
+        {
+          "turn": "left",
+          "arrival": 49.40300754788929
+        },
+        {
+          "turn": "straight",
+          "arrival": 79.86639378989675
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 40.64213158710031
+        },
+        {
+          "turn": "straight",
+          "arrival": 41.60402961384949
+        },
+        {
+          "turn": "right",
+          "arrival": 53.81149161446087
+        },
+        {
+          "turn": "right",
+          "arrival": 116.41801959737687
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 48.1955906309384
+        },
+        {
+          "turn": "left",
+          "arrival": 52.90663653052496
+        },
+        {
+          "turn": "left",
+          "arrival": 54.71118446250008
+        },
+        {
+          "turn": "left",
+          "arrival": 94.71212469936084
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 56.869280841330394
+        },
+        {
+          "turn": "straight",
+          "arrival": 71.2028706066507
+        },
+        {
+          "turn": "straight",
+          "arrival": 92.36996845499905
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.75196456970976
+        },
+        {
+          "turn": "right",
+          "arrival": 110.45207711302507
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 16.730795214779675
+        },
+        {
+          "turn": "straight",
+          "arrival": 113.73468648616141
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 6.535199639233205
+        },
+        {
+          "turn": "right",
+          "arrival": 11.097735756367268
+        },
+        {
+          "turn": "straight",
+          "arrival": 36.48988059215395
+        },
+        {
+          "turn": "right",
+          "arrival": 54.23740591491872
+        },
+        {
+          "turn": "straight",
+          "arrival": 60.174011462941095
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 18.482876356849385
+        },
+        {
+          "turn": "straight",
+          "arrival": 24.934054884223166
+        },
+        {
+          "turn": "left",
+          "arrival": 38.36173337195273
+        },
+        {
+          "turn": "left",
+          "arrival": 65.2454802298011
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.3424028347178
+        },
+        {
+          "turn": "straight",
+          "arrival": 91.97309252145584
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 23.334004721461557
+        },
+        {
+          "turn": "straight",
+          "arrival": 47.7069596778863
+        },
+        {
+          "turn": "straight",
+          "arrival": 69.72789241118959
+        },
+        {
+          "turn": "straight",
+          "arrival": 98.79777801965253
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 10.030746047269364
+        },
+        {
+          "turn": "straight",
+          "arrival": 14.322559623168427
+        },
+        {
+          "turn": "straight",
+          "arrival": 22.32077017332648
+        },
+        {
+          "turn": "left",
+          "arrival": 93.75400269239998
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 19.597062217791365
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 36.97024134772148
+        },
+        {
+          "turn": "straight",
+          "arrival": 111.97835948475773
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 20.987161298823803
+        },
+        {
+          "turn": "straight",
+          "arrival": 67.11372680055143
+        },
+        {
+          "turn": "right",
+          "arrival": 82.25324633535817
+        },
+        {
+          "turn": "right",
+          "arrival": 101.43360816794977
+        },
+        {
+          "turn": "straight",
+          "arrival": 116.91104980788685
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 0.7942641462033695
+        },
+        {
+          "turn": "straight",
+          "arrival": 78.45755666427027
+        },
+        {
+          "turn": "straight",
+          "arrival": 98.73590632639673
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 5.845788082351859
+        },
+        {
+          "turn": "right",
+          "arrival": 16.748122425834705
+        },
+        {
+          "turn": "straight",
+          "arrival": 34.636082199624475
+        },
+        {
+          "turn": "straight",
+          "arrival": 46.33351418927117
+        },
+        {
+          "turn": "right",
+          "arrival": 59.0263803960024
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 12.938085823767814
+        },
+        {
+          "turn": "left",
+          "arrival": 15.445737412704709
+        },
+        {
+          "turn": "straight",
+          "arrival": 39.37384887967658
+        },
+        {
+          "turn": "straight",
+          "arrival": 70.51236561045783
+        },
+        {
+          "turn": "left",
+          "arrival": 82.89817639859648
+        },
+        {
+          "turn": "straight",
+          "arrival": 85.89739608008938
+        },
+        {
+          "turn": "straight",
+          "arrival": 92.96307696484466
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 14.270666159864632
+        },
+        {
+          "turn": "straight",
+          "arrival": 14.833848296912034
+        },
+        {
+          "turn": "straight",
+          "arrival": 80.11037082398448
+        },
+        {
+          "turn": "right",
+          "arrival": 110.8091703212673
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 26.145145435233328
+        },
+        {
+          "turn": "left",
+          "arrival": 43.975563077449415
+        },
+        {
+          "turn": "straight",
+          "arrival": 50.08155089064659
+        },
+        {
+          "turn": "left",
+          "arrival": 91.47284152619581
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 11.892682152616828
+        },
+        {
+          "turn": "straight",
+          "arrival": 15.041301736093459
+        },
+        {
+          "turn": "right",
+          "arrival": 116.82958846570493
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 10.893517564735088
+        },
+        {
+          "turn": "left",
+          "arrival": 72.04674101129868
+        },
+        {
+          "turn": "straight",
+          "arrival": 85.18738595070027
+        },
+        {
+          "turn": "left",
+          "arrival": 93.45694138249667
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 16.681677833532124
+        },
+        {
+          "turn": "right",
+          "arrival": 42.26439281751871
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 21.701824517317544
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.46990693266591
+        },
+        {
+          "turn": "straight",
+          "arrival": 102.81284994150026
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 21.515674006449434
+        },
+        {
+          "turn": "straight",
+          "arrival": 25.712880057916934
+        },
+        {
+          "turn": "right",
+          "arrival": 47.56437102382631
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 39.51430931598022
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 12.006801984486536
+        },
+        {
+          "turn": "right",
+          "arrival": 32.80379182154218
+        },
+        {
+          "turn": "right",
+          "arrival": 34.482667087157154
+        },
+        {
+          "turn": "straight",
+          "arrival": 45.328511211592144
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.574132160453374
+        },
+        {
+          "turn": "right",
+          "arrival": 101.51603795209978
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 16.371675457783216
+        },
+        {
+          "turn": "straight",
+          "arrival": 18.05671848037855
+        },
+        {
+          "turn": "left",
+          "arrival": 55.699164109273866
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 25.55433660221655
+        },
+        {
+          "turn": "straight",
+          "arrival": 48.27611468845437
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 30.77359618561408
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.77934482650836
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.31525854991766
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 49.2312314975141
+        },
+        {
+          "turn": "straight",
+          "arrival": 51.94925814580026
+        },
+        {
+          "turn": "straight",
+          "arrival": 60.33222271036253
+        },
+        {
+          "turn": "right",
+          "arrival": 104.06061356983932
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 6.639272743091573
+        },
+        {
+          "turn": "straight",
+          "arrival": 13.62702919539414
+        },
+        {
+          "turn": "straight",
+          "arrival": 59.63420537302869
+        },
+        {
+          "turn": "straight",
+          "arrival": 62.672350288016816
+        },
+        {
+          "turn": "left",
+          "arrival": 74.94867480655434
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.70758821243344
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 25.168699038609688
+        },
+        {
+          "turn": "right",
+          "arrival": 28.324938218533116
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.63064614443984
+        },
+        {
+          "turn": "right",
+          "arrival": 80.60064881214254
+        },
+        {
+          "turn": "right",
+          "arrival": 112.45955107026668
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 18.93869273329099
+        },
+        {
+          "turn": "straight",
+          "arrival": 25.693036588958023
+        },
+        {
+          "turn": "straight",
+          "arrival": 30.357947545702363
+        },
+        {
+          "turn": "straight",
+          "arrival": 86.23001086041721
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 100.9767559821454
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 48.12418933332327
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 25.246378951743296
+        },
+        {
+          "turn": "right",
+          "arrival": 60.76014167043616
+        },
+        {
+          "turn": "straight",
+          "arrival": 94.92231813767445
+        },
+        {
+          "turn": "straight",
+          "arrival": 95.11707538910348
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.16680155156853
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.53202490592591
+        },
+        {
+          "turn": "right",
+          "arrival": 113.77310605910725
+        },
+        {
+          "turn": "right",
+          "arrival": 116.89530860998471
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 10.687352083354767
+        },
+        {
+          "turn": "left",
+          "arrival": 37.97879357255551
+        },
+        {
+          "turn": "straight",
+          "arrival": 64.18928313280904
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 10.830039325048677
+        },
+        {
+          "turn": "straight",
+          "arrival": 23.839646355270393
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.4252119308867
+        },
+        {
+          "turn": "right",
+          "arrival": 85.8805474946552
+        },
+        {
+          "turn": "right",
+          "arrival": 105.21134726871209
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 31.281585550438482
+        },
+        {
+          "turn": "straight",
+          "arrival": 32.88438308219128
+        },
+        {
+          "turn": "left",
+          "arrival": 75.39555278916437
+        },
+        {
+          "turn": "left",
+          "arrival": 88.4330359813225
+        },
+        {
+          "turn": "straight",
+          "arrival": 112.26001151460618
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 0.9439327506325412
+        },
+        {
+          "turn": "straight",
+          "arrival": 103.54799204124296
+        },
+        {
+          "turn": "right",
+          "arrival": 105.53606970213153
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 44.82699715227349
+        },
+        {
+          "turn": "left",
+          "arrival": 59.905274097632955
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 111.72775289551149
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "left",
+          "arrival": 4.303469780308773
+        },
+        {
+          "turn": "straight",
+          "arrival": 34.82315538179412
+        },
+        {
+          "turn": "straight",
+          "arrival": 69.65842918697496
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 6.386662592518282
+        },
+        {
+          "turn": "straight",
+          "arrival": 34.5554367421058
+        },
+        {
+          "turn": "right",
+          "arrival": 41.95251622221876
+        },
+        {
+          "turn": "straight",
+          "arrival": 88.42430859318232
+        },
+        {
+          "turn": "straight",
+          "arrival": 102.76052731866176
+        },
+        {
+          "turn": "right",
+          "arrival": 110.44958359912228
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 0.6433182242425195
+        },
+        {
+          "turn": "left",
+          "arrival": 17.01548808253348
+        },
+        {
+          "turn": "straight",
+          "arrival": 50.19971893462825
+        },
+        {
+          "turn": "straight",
+          "arrival": 70.0256869179051
+        },
+        {
+          "turn": "left",
+          "arrival": 82.42229391236692
+        },
+        {
+          "turn": "straight",
+          "arrival": 100.19443914439827
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 62.036722284266624
+        },
+        {
+          "turn": "right",
+          "arrival": 111.14844509668887
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 1.238429071499354
+        },
+        {
+          "turn": "straight",
+          "arrival": 44.356528743716844
+        },
+        {
+          "turn": "straight",
+          "arrival": 106.48412376224199
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 8.766674186539124
+        },
+        {
+          "turn": "straight",
+          "arrival": 13.92288565206683
+        },
+        {
+          "turn": "straight",
+          "arrival": 14.221481881574336
+        },
+        {
+          "turn": "right",
+          "arrival": 52.98236252950439
+        },
+        {
+          "turn": "right",
+          "arrival": 59.15862600132007
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.3476102364822
+        },
+        {
+          "turn": "straight",
+          "arrival": 117.30286484482599
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 88.86194020054785
+        },
+        {
+          "turn": "straight",
+          "arrival": 110.07624153354307
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 18.453056242055744
+        },
+        {
+          "turn": "straight",
+          "arrival": 116.37246165619521
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 35.82559927479483
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 5.431045964321997
+        },
+        {
+          "turn": "right",
+          "arrival": 22.210486899215446
+        },
+        {
+          "turn": "right",
+          "arrival": 103.59346125902138
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 52.05587047431707
+        },
+        {
+          "turn": "left",
+          "arrival": 58.75476429949022
+        },
+        {
+          "turn": "left",
+          "arrival": 62.771046842096865
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 30.58322452208508
+        },
+        {
+          "turn": "right",
+          "arrival": 43.085311054158474
+        },
+        {
+          "turn": "straight",
+          "arrival": 70.46500658162952
+        },
+        {
+          "turn": "right",
+          "arrival": 95.77763651806266
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 1.5965519890803215
+        },
+        {
+          "turn": "left",
+          "arrival": 2.4614443054906943
+        },
+        {
+          "turn": "straight",
+          "arrival": 4.85257075429689
+        },
+        {
+          "turn": "straight",
+          "arrival": 34.884362937407936
+        },
+        {
+          "turn": "straight",
+          "arrival": 47.8630196349298
+        },
+        {
+          "turn": "left",
+          "arrival": 75.40280874538557
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.71327407917666
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "straight",
+          "arrival": 11.338123498549898
+        },
+        {
+          "turn": "straight",
+          "arrival": 17.83278463857135
+        },
+        {
+          "turn": "straight",
+          "arrival": 34.19230667993545
+        },
+        {
+          "turn": "straight",
+          "arrival": 40.96012559537853
+        },
+        {
+          "turn": "right",
+          "arrival": 67.56684923202461
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.66413401337489
+        },
+        {
+          "turn": "straight",
+          "arrival": 104.25366251860596
+        },
+        {
+          "turn": "straight",
+          "arrival": 113.6902076585995
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "left",
+          "arrival": 28.960773496832527
+        },
+        {
+          "turn": "straight",
+          "arrival": 40.59643535149506
+        },
+        {
+          "turn": "straight",
+          "arrival": 60.876687263319866
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.65115651226363
+        },
+        {
+          "turn": "left",
+          "arrival": 109.31829246429064
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 35.75533351817901
+        },
+        {
+          "turn": "right",
+          "arrival": 111.19585181439018
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 101.83141100575655
+        },
+        {
+          "turn": "straight",
+          "arrival": 117.32795712197502
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 7.376199418246383
+        },
+        {
+          "turn": "straight",
+          "arrival": 25.64814188434442
+        },
+        {
+          "turn": "straight",
+          "arrival": 83.69651586882824
+        },
+        {
+          "turn": "straight",
+          "arrival": 94.4658889426428
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 43.27720877180135
+        },
+        {
+          "turn": "left",
+          "arrival": 84.03540766591257
+        },
+        {
+          "turn": "left",
+          "arrival": 87.01184188027429
+        },
+        {
+          "turn": "left",
+          "arrival": 91.43576279809768
+        },
+        {
+          "turn": "straight",
+          "arrival": 102.40897776794634
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 14.857562227010304
+        },
+        {
+          "turn": "right",
+          "arrival": 48.24033816377774
+        },
+        {
+          "turn": "right",
+          "arrival": 53.10944272182968
+        },
+        {
+          "turn": "right",
+          "arrival": 60.602727387483526
+        },
+        {
+          "turn": "straight",
+          "arrival": 90.84555891366497
+        },
+        {
+          "turn": "straight",
+          "arrival": 109.10770238413573
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 29.437927754056474
+        },
+        {
+          "turn": "straight",
+          "arrival": 87.83833985919868
+        },
+        {
+          "turn": "left",
+          "arrival": 110.16240692970989
+        },
+        {
+          "turn": "straight",
+          "arrival": 116.95917079379426
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 105.71696189182825
+        },
+        {
+          "turn": "straight",
+          "arrival": 117.95406750091671
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 14.129065607309954
+        },
+        {
+          "turn": "straight",
+          "arrival": 54.651884859820214
+        },
+        {
+          "turn": "straight",
+          "arrival": 78.99052971856159
+        },
+        {
+          "turn": "straight",
+          "arrival": 85.39685048969876
+        },
+        {
+          "turn": "left",
+          "arrival": 90.06702882871241
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "right",
+          "arrival": 7.463240705329226
+        },
+        {
+          "turn": "straight",
+          "arrival": 46.468214600821376
+        },
+        {
+          "turn": "straight",
+          "arrival": 57.74117193197526
+        },
+        {
+          "turn": "straight",
+          "arrival": 94.41084552330224
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 60.571663352662554
+        },
+        {
+          "turn": "left",
+          "arrival": 94.05510001446984
+        },
+        {
+          "turn": "left",
+          "arrival": 110.60368265374458
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 35.904193178894054
+        },
+        {
+          "turn": "straight",
+          "arrival": 62.35999769346027
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 77.26970275582624
+        },
+        {
+          "turn": "straight",
+          "arrival": 98.74112675656335
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "straight",
+          "arrival": 25.869774684080895
+        },
+        {
+          "turn": "straight",
+          "arrival": 35.27775539689559
+        },
+        {
+          "turn": "right",
+          "arrival": 103.91442879940399
+        },
+        {
+          "turn": "right",
+          "arrival": 114.96953904966459
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "left",
+          "arrival": 14.50397137068447
+        },
+        {
+          "turn": "straight",
+          "arrival": 96.83052289504754
+        },
+        {
+          "turn": "left",
+          "arrival": 116.16381678389729
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 14.679348660293785
+        },
+        {
+          "turn": "right",
+          "arrival": 17.321541761564507
+        },
+        {
+          "turn": "straight",
+          "arrival": 17.877910911749787
+        },
+        {
+          "turn": "right",
+          "arrival": 53.53969044513048
+        },
+        {
+          "turn": "straight",
+          "arrival": 82.68214338812435
+        },
+        {
+          "turn": "straight",
+          "arrival": 93.76192186233905
+        },
+        {
+          "turn": "straight",
+          "arrival": 104.64177512856755
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 24.3071349617448
+        },
+        {
+          "turn": "left",
+          "arrival": 34.24220694068156
+        },
+        {
+          "turn": "straight",
+          "arrival": 35.76292043024872
+        },
+        {
+          "turn": "left",
+          "arrival": 36.8153062035126
+        },
+        {
+          "turn": "straight",
+          "arrival": 77.57319503032366
+        },
+        {
+          "turn": "straight",
+          "arrival": 97.51724612532739
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 7.275837348404326
+        },
+        {
+          "turn": "straight",
+          "arrival": 10.765812452410062
+        },
+        {
+          "turn": "right",
+          "arrival": 91.5573956561453
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 32.29916860527568
+        },
+        {
+          "turn": "straight",
+          "arrival": 44.79662645498491
+        },
+        {
+          "turn": "straight",
+          "arrival": 73.73705145221055
+        },
+        {
+          "turn": "left",
+          "arrival": 107.16132252593438
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "straight",
+          "arrival": 61.034552829614256
+        },
+        {
+          "turn": "straight",
+          "arrival": 68.18947649605207
+        },
+        {
+          "turn": "straight",
+          "arrival": 105.39351531740644
+        },
+        {
+          "turn": "right",
+          "arrival": 115.36225310995523
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "straight",
+          "arrival": 19.369956617816925
+        },
+        {
+          "turn": "left",
+          "arrival": 30.861335180126204
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 0.06515180484206962
+        },
+        {
+          "turn": "right",
+          "arrival": 21.66096068764009
+        },
+        {
+          "turn": "right",
+          "arrival": 55.17592098622859
+        },
+        {
+          "turn": "straight",
+          "arrival": 76.22038566591786
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 58.10058119497278
+        },
+        {
+          "turn": "straight",
+          "arrival": 58.976764853573734
+        },
+        {
+          "turn": "left",
+          "arrival": 108.17339927814477
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 29.511394198784544
+        },
+        {
+          "turn": "right",
+          "arrival": 71.74413018008079
+        },
+        {
+          "turn": "straight",
+          "arrival": 91.49582897972263
+        },
+        {
+          "turn": "right",
+          "arrival": 101.09264072675133
+        }
+      ]
+    },
+    {
+      "N,0": [
+        {
+          "turn": "straight",
+          "arrival": 3.3447302698788794
+        },
+        {
+          "turn": "straight",
+          "arrival": 7.4402680269918875
+        },
+        {
+          "turn": "straight",
+          "arrival": 23.625218121243922
+        },
+        {
+          "turn": "straight",
+          "arrival": 55.52310380680617
+        },
+        {
+          "turn": "straight",
+          "arrival": 107.10866317041264
+        },
+        {
+          "turn": "straight",
+          "arrival": 110.00572535396546
+        }
+      ],
+      "N,1": [
+        {
+          "turn": "straight",
+          "arrival": 51.90578059346218
+        },
+        {
+          "turn": "right",
+          "arrival": 73.28863676743377
+        },
+        {
+          "turn": "straight",
+          "arrival": 100.86091004348648
+        },
+        {
+          "turn": "right",
+          "arrival": 117.37147333283629
+        }
+      ],
+      "S,0": [
+        {
+          "turn": "straight",
+          "arrival": 70.57975005648707
+        }
+      ],
+      "S,1": [
+        {
+          "turn": "right",
+          "arrival": 23.53041528248506
+        },
+        {
+          "turn": "straight",
+          "arrival": 112.02760806969101
+        }
+      ],
+      "E,0": [
+        {
+          "turn": "left",
+          "arrival": 0.2345957796785525
+        },
+        {
+          "turn": "left",
+          "arrival": 22.9814011662899
+        },
+        {
+          "turn": "straight",
+          "arrival": 33.69076296046781
+        },
+        {
+          "turn": "straight",
+          "arrival": 106.05629299988175
+        }
+      ],
+      "E,1": [
+        {
+          "turn": "right",
+          "arrival": 21.262396430205506
+        },
+        {
+          "turn": "right",
+          "arrival": 28.110953253614106
+        },
+        {
+          "turn": "straight",
+          "arrival": 63.889233871276524
+        },
+        {
+          "turn": "right",
+          "arrival": 81.62081705179386
+        },
+        {
+          "turn": "right",
+          "arrival": 101.72006131229881
+        },
+        {
+          "turn": "right",
+          "arrival": 113.22570926509276
+        }
+      ],
+      "W,0": [
+        {
+          "turn": "straight",
+          "arrival": 40.164697839446866
+        },
+        {
+          "turn": "straight",
+          "arrival": 66.21422248521768
+        },
+        {
+          "turn": "straight",
+          "arrival": 75.0418509064223
+        },
+        {
+          "turn": "straight",
+          "arrival": 115.05631894540961
+        }
+      ],
+      "W,1": [
+        {
+          "turn": "right",
+          "arrival": 26.582491764257345
+        },
+        {
+          "turn": "right",
+          "arrival": 42.359367882048204
+        },
+        {
+          "turn": "right",
+          "arrival": 104.3899479007848
+        }
+      ]
+    }
+  ]
+}
