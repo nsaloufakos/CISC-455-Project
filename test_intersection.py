@@ -6,6 +6,7 @@ from typing import Dict, List
 
 from intersection import APPROACHES, Intersection, LaneKey
 
+
 def layout(inter: Intersection) -> Dict[LaneKey, List[int]]:
     """Car ids per lane, front first, for comparing two intersections."""
     return {key: [c.id for c in inter.cars_in_lane(*key)] for key in inter.lanes}
@@ -57,22 +58,28 @@ class TestPlacement(IntersectionTestCase):
                 positions = [c.position for c in inter.cars_in_lane(*key)]
                 self.assertEqual(len(positions), len(set(positions)))
 
-    def test_random_respects_tight_capacity(self):
-        # ceil(30 * 0.125) = 4 per lane, 32 slots for 30 cars.
+    def test_random_respects_capacity(self):
+        # ceil(30 * 0.25) = 8 per lane.
         for seed in range(200):
-            inter = Intersection(capacity_fraction=0.125, seed=seed)
+            inter = Intersection(seed=seed)
             inter.populate_random()
             self.assertValidState(inter, 30)
-            self.assertLessEqual(max(inter.queue_lengths().values()), 4)
+            self.assertLessEqual(max(inter.queue_lengths().values()), 8)
 
-    def test_lopsided_layout_allowed_by_default(self):
-        inter = Intersection()
+    def test_random_gives_up_when_capacity_too_tight(self):
+        # 32 slots for 30 cars: a valid random draw is vanishingly unlikely.
+        inter = Intersection(capacity_fraction=0.125, seed=0)
+        with self.assertRaises(RuntimeError):
+            inter.populate_random(max_attempts=50)
+
+    def test_lopsided_layout_allowed_at_full_capacity(self):
+        inter = Intersection(capacity_fraction=1.0)
         inter.populate_from([("E", 0)] * 30)
         self.assertEqual(inter.queue_length("E", 0), 30)
         self.assertValidState(inter, 30)
 
     def test_populate_replaces_previous_state(self):
-        inter = Intersection(seed=1)
+        inter = Intersection(capacity_fraction=1.0, seed=1)
         inter.populate_random()
         inter.populate_from([("S", 1)] * 30)
         self.assertEqual(inter.queue_lengths()[("S", 1)], 30)
@@ -96,7 +103,7 @@ class TestPlacement(IntersectionTestCase):
             inter.populate_from([("E", 2)] + [("E", 0)] * 29)  # bad lane
 
     def test_str_diagram(self):
-        inter = Intersection(num_cars=3)
+        inter = Intersection(num_cars=3, capacity_fraction=1.0)
         inter.populate_from([("N", 0), ("N", 0), ("W", 1)])
         text = str(inter)
         self.assertIn("N lane 0: [0][1]", text)
@@ -106,7 +113,7 @@ class TestPlacement(IntersectionTestCase):
 
 class TestRemoveFrontCar(IntersectionTestCase):
     def test_contiguous_after_each_removal(self):
-        inter = Intersection(seed=7)
+        inter = Intersection(capacity_fraction=1.0, seed=7)
         inter.populate_from([("N", 1)] * 10 + [("E", 0)] * 20)
         remaining = 30
         while inter.queue_length("E", 0):
@@ -134,7 +141,7 @@ class TestRemoveFrontCar(IntersectionTestCase):
         self.assertEqual(remaining, 0)
 
     def test_empty_lane_raises(self):
-        inter = Intersection()
+        inter = Intersection(capacity_fraction=1.0)
         inter.populate_from([("E", 0)] * 30)
         with self.assertRaises(IndexError):
             inter.remove_front_car("W", 0)
@@ -183,10 +190,10 @@ class TestReproducibility(unittest.TestCase):
 
 
 class TestCapacity(unittest.TestCase):
-    def test_default_capacity_equals_num_cars(self):
-        self.assertEqual(Intersection().lane_capacity, 30)
-        self.assertEqual(Intersection(num_cars=10).lane_capacity, 10)
-        self.assertEqual(Intersection(num_cars=100).lane_capacity, 100)
+    def test_default_capacity_is_quarter_of_num_cars(self):
+        self.assertEqual(Intersection().lane_capacity, 8)  # ceil(7.5)
+        self.assertEqual(Intersection(num_cars=10).lane_capacity, 3)  # ceil(2.5)
+        self.assertEqual(Intersection(num_cars=100).lane_capacity, 25)
 
     def test_capacity_scales_with_fraction(self):
         cases = [
@@ -206,17 +213,10 @@ class TestCapacity(unittest.TestCase):
         inter = Intersection(num_cars=30, capacity_fraction=0.1, lanes_per_approach=3)
         self.assertEqual(inter.lane_capacity, 3)
 
-    def test_explicit_override_takes_precedence(self):
-        inter = Intersection(capacity_fraction=0.5, lane_capacity=5)
-        self.assertEqual(inter.lane_capacity, 5)
-        self.assertEqual(Intersection(lane_capacity=12).lane_capacity, 12)
-
     def test_total_capacity_too_small(self):
         with self.assertRaises(ValueError):
-            Intersection(num_cars=30, lane_capacity=3)  # 8 * 3 = 24 < 30
-        with self.assertRaises(ValueError):
             Intersection(num_cars=30, capacity_fraction=0.1)  # 8 * 3 = 24 < 30
-        Intersection(num_cars=30, lane_capacity=4)  # 32 >= 30 is fine
+        Intersection(num_cars=30, capacity_fraction=0.125)  # 8 * 4 = 32 >= 30 is fine
 
     def test_populate_from_overfilled_lane(self):
         inter = Intersection(capacity_fraction=0.5)  # 15 per lane
