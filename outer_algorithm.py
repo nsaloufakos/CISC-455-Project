@@ -1,8 +1,9 @@
-
 import numpy as np
 import random
 import json
+import multiprocessing as mp
 from pathlib import Path
+from concurrent.futures import ProcessPoolExecutor
 from algorithm import run_algorithm, BOUNDS
 from setup import load_variants
 
@@ -15,8 +16,10 @@ OUTER_MU = 6
 OUTER_LAMD = 6
 OUTER_GENERATIONS = 4
 OUTER_TOURNAMENT_SIZE = 3
+CONFIGS_IN_PARALLEL = 2
 INNER_EVALUATION_BUDGET = 300
-INNER_REPEATS = 2
+INNER_GENERATIONS = 100
+INNER_REPEATS = 4
 INNER_SEEDS = (101, 202, 303, 404, 505)
 OUTER_SEED = 17
 
@@ -33,34 +36,42 @@ def decode(individual: list[float]) -> dict:
     return settings
 
 
-def evaluate_outer(individual: list[float], variants: list[dict]) -> float:
+def run_inner(settings: dict, variants: list[dict], generations: int, seed: int) -> float:
+    _, fitness = run_algorithm(
+        mu = settings["mu"],
+        lamd = settings["lamd"],
+        generations = generations,
+        bounds = BOUNDS,
+        sigma_init = settings["sigma_init"],
+        sigma_bound = settings["sigma_bound"],
+        lr = settings["lr"],
+        tournament_size = settings["tournament_size"],
+        crossover_alpha = settings["crossover_alpha"],
+        mating_pool_size = settings["mating_pool_size"],
+        intersection_variants = variants,
+        seed = seed,
+        verbose = False
+    )
+    return fitness
+
+
+def evaluate_outer(individual: list[float], variants: list[dict], executor: ProcessPoolExecutor, futures = None) -> float:
     settings = decode(individual)
-    generations = (INNER_EVALUATION_BUDGET - settings["mu"]) // settings["lamd"]
+    generations = INNER_GENERATIONS #(INNER_EVALUATION_BUDGET - settings["mu"]) // settings["lamd"]
     if generations < 1:
         return float("inf")
 
     print(f"  Hyperparameters: {settings}", flush=True)
     print(f"  Inner generations: {generations}", flush=True)
 
+    if futures is None:
+        futures = [executor.submit(run_inner, settings, variants, generations, seed) for seed in INNER_SEEDS[:INNER_REPEATS]]
+
     results = []
     for i, seed in enumerate(INNER_SEEDS[:INNER_REPEATS]):
         print(f"  Inner run {i + 1}/{INNER_REPEATS} (seed = {seed})...", flush=True)
 
-        _, fitness = run_algorithm(
-            mu = settings["mu"],
-            lamd = settings["lamd"],
-            generations = generations,
-            bounds = BOUNDS,
-            sigma_init = settings["sigma_init"],
-            sigma_bound = settings["sigma_bound"],
-            lr = settings["lr"],
-            tournament_size = settings["tournament_size"],
-            crossover_alpha = settings["crossover_alpha"],
-            mating_pool_size = settings["mating_pool_size"],
-            intersection_variants = variants,
-            seed = seed,
-            verbose = False
-        )
+        fitness = futures[i].result()
         results.append(fitness)
 
         print(f"  Inner run {i + 1} complete: Fitness = {fitness:.2f}", flush=True)
@@ -72,6 +83,11 @@ def evaluate_outer(individual: list[float], variants: list[dict]) -> float:
 
 
 def run_outer_algorithm():
+    with ProcessPoolExecutor(max_workers = CONFIGS_IN_PARALLEL * INNER_REPEATS, mp_context = mp.get_context("spawn")) as executor:
+        return _run_outer_algorithm(executor)
+
+
+def _run_outer_algorithm(executor: ProcessPoolExecutor):
     rng = np.random.default_rng(OUTER_SEED)
     py_rng = random.Random(OUTER_SEED)
     variants = load_variants()
@@ -91,7 +107,7 @@ def run_outer_algorithm():
     print(f"Traffic scenarios: {len(variants)}", flush=True)
     print("=" * 60, flush=True)
 
-    def fitness(individual):
+    def fitness(individual, futures = None):
         nonlocal evaluations_completed, best_fitness
 
         evaluations_completed += 1
@@ -101,7 +117,7 @@ def run_outer_algorithm():
         print(f"\nConfiguration {evaluations_completed}/{total_evaluations}", flush=True)
 
         if key not in cache:
-            cache[key] = evaluate_outer(individual, variants)
+            cache[key] = evaluate_outer(individual, variants, executor, futures)
         else:
             print("  Using cached fitness", flush=True)
 
@@ -116,10 +132,33 @@ def run_outer_algorithm():
 
         return score
 
+    def evaluate_configurations(individuals):
+        configuration_scores = []
+
+        for start in range(0, len(individuals), CONFIGS_IN_PARALLEL):
+            batch = individuals[start:start + CONFIGS_IN_PARALLEL]
+            pending = {}
+
+            # Submit both configurations before waiting for either one.
+            for individual in batch:
+                settings = decode(individual)
+                key = tuple(settings[name] for name in PARAMETERS)
+
+                if INNER_GENERATIONS >= 1 and key not in cache and key not in pending:
+                    pending[key] = [executor.submit(run_inner, settings, variants, INNER_GENERATIONS, seed) for seed in INNER_SEEDS[:INNER_REPEATS]]
+
+            # Update the cache and collect scores in the original order.
+            for individual in batch:
+                settings = decode(individual)
+                key = tuple(settings[name] for name in PARAMETERS)
+                configuration_scores.append(fitness(individual, pending.get(key)))
+
+        return configuration_scores
+
     print("\nEvaluating initial population...", flush=True)
 
     population = [[float(rng.uniform(low, high)) for low, high in BOUNDS_OUTER] for _ in range(OUTER_MU)]
-    scores = [fitness(individual) for individual in population]
+    scores = evaluate_configurations(population)
 
     for generation in range(OUTER_GENERATIONS):
         print("\n" + "=" * 60, flush=True)
@@ -137,10 +176,9 @@ def run_outer_algorithm():
             for i, (low, high) in enumerate(BOUNDS_OUTER):
                 if rng.random() < 0.3:
                     child[i] = float(np.clip(child[i] + rng.normal(0, (high - low) * 0.1), low, high))
-                    
             children.append(child)
 
-        child_scores = [fitness(child) for child in children]
+        child_scores = evaluate_configurations(children)
         candidates = list(zip(population + children, scores + child_scores))
         candidates.sort(key = lambda x: x[1])
         survivors = candidates[:OUTER_MU]
