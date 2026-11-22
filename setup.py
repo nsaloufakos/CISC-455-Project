@@ -14,9 +14,12 @@ DIRECTION_WEIGHTS = {"N": 1, "S": 3, "E": 1, "W": 1}
 TURN_WEIGHTS = {"N": [50, 35, 15], "S": [5, 80, 15], "E": [20, 65, 15], "W": [20, 65, 15]}  # [left, straight, right]
 VARIANT_FILE = Path(__file__).with_name("intersection_variants.json")
 
-COMPLETION_WEIGHT = 1.0
+# score = average wait (typical driver) + 0.2 * max wait (fairness to the unluckiest car).
+# completion_time is left out: among good plans it moves with max_wait (correlation 0.89),
+# so it counted the worst-off cars twice. 0.2 gives both remaining terms about equal influence.
+COMPLETION_WEIGHT = 0.0
 AVERAGE_WAIT_WEIGHT = 1.0
-MAX_WAIT_WEIGHT = 0.5
+MAX_WAIT_WEIGHT = 0.2
 
 MU = 20
 LAMD = 100

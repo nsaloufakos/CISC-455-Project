@@ -87,7 +87,11 @@ The function returns `completion_time`, `average_wait` and `max_wait`. It does n
 JSON keys can't be tuples, so the file stores lane keys as strings like `"N,0"`. `load_variants()` converts them back into tuples.
 
 `setup.py` also sets the fitness weights. The EA minimises this score:
-- score = 1.0 * completion_time + 1.0 * average_wait + 0.5 * max_wait
+- score = 1.0 * average_wait + 0.2 * max_wait
+
+`average_wait` measures the typical driver's delay, the standard measure in traffic engineering. `max_wait` measures fairness to the unluckiest car, such as a left-turner facing heavy oncoming traffic. The two genuinely trade off against each other. With a weight of 0.2, both terms have about equal influence on which plan wins.
+
+`completion_time` has weight 0 (`COMPLETION_WEIGHT`). Among good plans it moves almost in step with `max_wait` (correlation 0.89), so including it counted the worst-off cars twice. Most of it is also the same for every plan, since the last car arrives at about 239 s.
 
 ## 3. The inner EA: algorithm.py
 
