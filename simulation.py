@@ -7,6 +7,7 @@ MOVEMENT_TIME = {"left": 4.0, "straight": 2.0, "right": 3.0}
 CLEARANCE_TIME = 2.0
 MAX_CYCLES = 100
 PENALTY = 100000.0
+EPS = 1e-9
 
 def generate_variants(num_variants: int = 50, num_cars: int = 30, min_cars: int = 1, max_cars: int = 8, seed: int = 42, arrival_window: float = 120.0) -> list[dict]:
     rng = random.Random(seed)
@@ -38,7 +39,35 @@ def generate_variants(num_variants: int = 50, num_cars: int = 30, min_cars: int 
 
     return variants
 
+def _signal(advanced: float, green: float, t: float) -> tuple:
+    """Signal shown to one direction at local time t: ("advanced" | "regular" | None, end time)."""
+    if t < advanced - EPS:
+        return "advanced", advanced
+    if t < advanced + green - EPS:
+        return "regular", advanced + green
+    return None, None
+
+def _conflicts(direction: str, turn: str, moving: list) -> bool:
+    """Only a left turn and an oncoming straight or right turn cross paths.
+
+    Opposite straights, opposite rights, opposing lefts, and the two lanes of
+    one approach can all move at the same time.
+    """
+    for other_direction, other_turn, _ in moving:
+        if other_direction == OPPOSITE[direction] and (turn == "left") != (other_turn == "left"):
+            return True
+    return False
+
 def simulate_traffic(intersection: dict, individual: list[float]) -> dict:
+    """Run the fixed-time signal plan in individual over one traffic scenario.
+
+    Each lane sends one car at a time, and any cars whose paths do not cross
+    can move together. At each moment cars start in priority order: protected
+    lefts, then straights and rights, then permissive lefts (earlier arrivals
+    first within each group). A permissive left therefore waits while oncoming
+    straight or right traffic is moving, but never for oncoming left-turners.
+    A car only starts if it can finish before its own signal ends.
+    """
     times = {direction: (float(individual[2 * i]), float(individual[2 * i + 1])) for i, direction in enumerate(DIRECTIONS)}
     if any(a < 0 or g <= 0 for a, g in times.values()):
         raise ValueError("Invalid traffic-light durations")
@@ -49,66 +78,60 @@ def simulate_traffic(intersection: dict, individual: list[float]) -> dict:
         return {"completion_time": 0.0, "average_wait": 0.0, "max_wait": 0.0}
 
     elapsed = 0.0
+    finish = 0.0
     waits = []
     axes = (("N", "S"), ("E", "W"))
 
     for _ in range(MAX_CYCLES):
         for axis in axes:
             axis_duration = max(sum(times[direction]) for direction in axis)
-            phase_times = sorted(set([0.0, axis_duration] + [times[d][0] for d in axis] + [sum(times[d]) for d in axis]))
-            local_time = 0.0
+            signal_changes = [t for direction in axis for t in (times[direction][0], sum(times[direction]))]
+            lane_free_at = {(direction, lane): 0.0 for direction in axis for lane in range(2)}
+            moving = []  # (direction, turn, end time) of cars crossing right now
+            now = 0.0
 
-            for phase_end in phase_times[1:]:
-                while local_time < phase_end - 1e-9:
-                    current_time = elapsed + local_time
-                    candidates = []
-                    for direction in axis:
-                        advanced, green = times[direction]
+            while True:
+                current_time = elapsed + now
+                moving = [m for m in moving if m[2] > now + EPS]
 
-                        if local_time < advanced - 1e-9:
-                            signal = "advanced"
-                            signal_end = advanced
-                        elif local_time < advanced + green - 1e-9:
-                            signal = "regular"
-                            signal_end = advanced + green
-                        else:
+                ready = []
+                for direction in axis:
+                    signal, signal_end = _signal(*times[direction], now)
+                    if signal is None:
+                        continue
+                    for lane in range(2):
+                        queue = queues[(direction, lane)]
+                        if not queue or lane_free_at[(direction, lane)] > now + EPS or queue[0]["arrival"] > current_time + EPS:
                             continue
+                        turn = queue[0]["turn"]
+                        if signal == "advanced" and turn != "left":
+                            continue
+                        if now + MOVEMENT_TIME[turn] > signal_end + EPS:
+                            continue
+                        priority = 0 if signal == "advanced" else 2 if turn == "left" else 1
+                        ready.append((priority, queue[0]["arrival"], direction, lane, turn))
 
-                        for lane in range(2):
-                            queue = queues[(direction, lane)]
-                            if not queue or queue[0]["arrival"] > current_time + 1e-9:
-                                continue
-                            turn = queue[0]["turn"]
-
-                            if signal == "advanced" and turn != "left":
-                                continue
-                            if signal == "regular" and turn == "left":
-                                if any(queues[(OPPOSITE[direction], l)] and queues[(OPPOSITE[direction], l)][0]["arrival"] <= current_time + 1e-9 for l in range(2)):
-                                    continue
-
-                            candidates.append((direction, lane, turn, signal_end))
-
-                    if not candidates:
-                        arrivals = [queue[0]["arrival"] - elapsed for direction in axis for lane in range(2)
-                                    for queue in [queues[(direction, lane)]] if queue and queue[0]["arrival"] > current_time + 1e-9]
-                        local_time = min(phase_end, min(arrivals)) if arrivals else phase_end
+                for _, _, direction, lane, turn in sorted(ready):
+                    if _conflicts(direction, turn, moving):
                         continue
-
-                    direction, lane, turn, signal_end = candidates[0]
-                    duration = MOVEMENT_TIME[turn]
-                    if local_time + duration > signal_end + 1e-9:
-                        local_time = phase_end
-                        continue
-
                     car = queues[(direction, lane)].pop(0)
+                    end = now + MOVEMENT_TIME[turn]
+                    moving.append((direction, turn, end))
+                    lane_free_at[(direction, lane)] = end
                     waits.append(max(0.0, current_time - car["arrival"]))
+                    finish = max(finish, elapsed + end)
                     remaining -= 1
-                    local_time += duration
-                    if remaining == 0:
-                        return {"completion_time": elapsed + local_time,
-                                "average_wait": sum(waits) / len(waits), "max_wait": max(waits)}
 
-                local_time = max(local_time, phase_end)
+                if remaining == 0:
+                    return {"completion_time": finish, "average_wait": sum(waits) / len(waits), "max_wait": max(waits)}
+
+                # Jump to the next moment anything can change: a car finishes,
+                # a signal changes, or a car reaches the front of an empty lane.
+                arrivals = [queues[(direction, lane)][0]["arrival"] - elapsed for direction in axis for lane in range(2) if queues[(direction, lane)]]
+                events = [t for t in list(lane_free_at.values()) + signal_changes + arrivals if now + EPS < t < axis_duration - EPS]
+                if not events:
+                    break
+                now = min(events)
 
             elapsed += axis_duration + CLEARANCE_TIME
 

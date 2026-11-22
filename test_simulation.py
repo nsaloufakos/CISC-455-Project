@@ -45,10 +45,43 @@ class TestTrafficSimulation(unittest.TestCase):
         self.assertEqual(result["completion_time"], 12.0)
         self.assertEqual(result["average_wait"], 0.0)
 
-    def test_only_one_car_at_a_time(self):
+    def test_opposite_straights_move_together(self):
         self.empty[("N", 0)] = [{"turn": "straight", "arrival": 0.0}]
         self.empty[("S", 0)] = [{"turn": "straight", "arrival": 0.0}]
+        self.assertEqual(simulate_traffic(self.empty, self.chromosome)["completion_time"], 7.0)
+
+    def test_both_lanes_of_one_approach_move_together(self):
+        self.empty[("N", 0)] = [{"turn": "straight", "arrival": 0.0}]
+        self.empty[("N", 1)] = [{"turn": "right", "arrival": 0.0}]
+        self.assertEqual(simulate_traffic(self.empty, self.chromosome)["completion_time"], 8.0)
+
+    def test_one_car_at_a_time_per_lane(self):
+        self.empty[("N", 0)] = [{"turn": "straight", "arrival": 0.0}] * 2
         self.assertEqual(simulate_traffic(self.empty, self.chromosome)["completion_time"], 9.0)
+
+    def test_opposing_lefts_do_not_deadlock(self):
+        self.empty[("N", 0)] = [{"turn": "left", "arrival": 0.0}]
+        self.empty[("S", 0)] = [{"turn": "left", "arrival": 0.0}]
+        times = [0.0, 20.0] * 4 + [5.0] * 8
+        self.assertEqual(simulate_traffic(self.empty, times)["completion_time"], 4.0)
+
+    def test_protected_left_goes_before_oncoming_straight(self):
+        self.empty[("N", 0)] = [{"turn": "left", "arrival": 0.0}]
+        self.empty[("S", 0)] = [{"turn": "straight", "arrival": 0.0}]
+        times = [5.0, 20.0, 0.0, 25.0] + [5.0, 20.0] * 2 + [5.0] * 8
+        result = simulate_traffic(self.empty, times)
+        self.assertEqual(result["completion_time"], 6.0)  # left 0-4, then straight 4-6
+        self.assertEqual(result["max_wait"], 4.0)
+
+    def test_car_that_cannot_finish_does_not_block_others(self):
+        # N's green ends at 5, so its right turn (3s) arriving at 3 must wait for
+        # the next cycle; S's straight arriving at the same moment still goes.
+        self.empty[("N", 1)] = [{"turn": "right", "arrival": 3.0}]
+        self.empty[("S", 0)] = [{"turn": "straight", "arrival": 3.0}]
+        times = [0.0, 5.0, 0.0, 20.0, 0.0, 10.0, 0.0, 10.0] + [5.0] * 8
+        result = simulate_traffic(self.empty, times)
+        self.assertEqual(result["completion_time"], 37.0)  # next N green at 20+2+10+2 = 34
+        self.assertEqual(result["average_wait"], 15.5)  # S waits 0, N waits 31
 
     def test_advanced_left_turn(self):
         self.empty[("N", 0)] = [{"turn": "left", "arrival": 0.0}]
