@@ -4,11 +4,14 @@ from pathlib import Path
 from simulation import generate_variants
 
 NUM_VARIANTS = 50
-NUM_CARS = 30
+NUM_CARS = 200
 MIN_CARS = 1
-MAX_CARS = 8
+MAX_CARS = 80
 VARIANT_SEED = 42
-ARRIVAL_WINDOW = 120.0
+ARRIVAL_WINDOW = 240.0
+# Uneven traffic: S carries 3x the cars of each other approach, and N has many left turns.
+DIRECTION_WEIGHTS = {"N": 1, "S": 3, "E": 1, "W": 1}
+TURN_WEIGHTS = {"N": [50, 35, 15], "S": [5, 80, 15], "E": [20, 65, 15], "W": [20, 65, 15]}  # [left, straight, right]
 VARIANT_FILE = Path(__file__).with_name("intersection_variants.json")
 
 COMPLETION_WEIGHT = 1.0
@@ -24,7 +27,8 @@ LR = 0.1
 TOURNAMENT_SIZE = 3
 
 def load_variants():
-    settings = {"num_variants": NUM_VARIANTS, "num_cars": NUM_CARS, "min_cars": MIN_CARS, "max_cars": MAX_CARS, "seed": VARIANT_SEED, "arrival_window": ARRIVAL_WINDOW}
+    settings = {"num_variants": NUM_VARIANTS, "num_cars": NUM_CARS, "min_cars": MIN_CARS, "max_cars": MAX_CARS, "seed": VARIANT_SEED, "arrival_window": ARRIVAL_WINDOW,
+                "direction_weights": DIRECTION_WEIGHTS, "turn_weights": TURN_WEIGHTS}
 
     if VARIANT_FILE.exists():
         with VARIANT_FILE.open("r") as file:
@@ -36,7 +40,7 @@ def load_variants():
         data = saved["variants"]
 
     else:
-        variants = generate_variants(NUM_VARIANTS, NUM_CARS, MIN_CARS, MAX_CARS, VARIANT_SEED, ARRIVAL_WINDOW)
+        variants = generate_variants(NUM_VARIANTS, NUM_CARS, MIN_CARS, MAX_CARS, VARIANT_SEED, ARRIVAL_WINDOW, DIRECTION_WEIGHTS, TURN_WEIGHTS)
         data = [{f"{direction},{lane}": queue for (direction, lane), queue in variant.items()} for variant in variants]
         with VARIANT_FILE.open("w") as file:
             json.dump({"settings": settings, "variants": data}, file, indent=2)

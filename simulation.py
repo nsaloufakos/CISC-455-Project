@@ -8,8 +8,18 @@ CLEARANCE_TIME = 2.0
 MAX_CYCLES = 100
 PENALTY = 100000.0
 EPS = 1e-9
+TURNS = ("left", "straight", "right")
+DEFAULT_TURN_WEIGHTS = (20, 60, 20)  # left, straight, right
 
-def generate_variants(num_variants: int = 50, num_cars: int = 30, min_cars: int = 1, max_cars: int = 8, seed: int = 42, arrival_window: float = 120.0) -> list[dict]:
+def generate_variants(num_variants: int = 50, num_cars: int = 30, min_cars: int = 1, max_cars: int = 8, seed: int = 42, arrival_window: float = 120.0,
+                      direction_weights: dict | None = None, turn_weights: dict | None = None) -> list[dict]:
+    """Make num_variants random scenarios of num_cars cars each.
+
+    direction_weights: relative demand per approach, e.g. {"N": 1, "S": 3, "E": 1, "W": 1}.
+        An approach left out gets weight 1, so the default is equal demand.
+    turn_weights: (left, straight, right) weights per approach, e.g. {"N": (50, 35, 15)}.
+        An approach left out gets DEFAULT_TURN_WEIGHTS (20/60/20).
+    """
     rng = random.Random(seed)
     lanes = [(direction, lane) for direction in DIRECTIONS for lane in range(2)]
     if not (len(lanes) * min_cars <= num_cars <= len(lanes) * max_cars):
@@ -17,13 +27,26 @@ def generate_variants(num_variants: int = 50, num_cars: int = 30, min_cars: int 
     if arrival_window < 0:
         raise ValueError("Arrival window cannot be negative")
 
+    direction_weights = direction_weights or {}
+    turn_weights = turn_weights or {}
+    unknown = (set(direction_weights) | set(turn_weights)) - set(DIRECTIONS)
+    if unknown:
+        raise ValueError(f"Unknown approaches in weights: {sorted(unknown)}")
+    demand = [direction_weights.get(direction, 1) for direction in DIRECTIONS]
+    turn_mix = {direction: tuple(turn_weights.get(direction, DEFAULT_TURN_WEIGHTS)) for direction in DIRECTIONS}
+    if any(w < 0 for w in demand) or sum(demand) <= 0:
+        raise ValueError("Direction weights must be non-negative with a positive total")
+    for direction, weights in turn_mix.items():
+        if len(weights) != 3 or any(w < 0 for w in weights) or sum(weights) <= 0:
+            raise ValueError(f"Turn weights for {direction} must be three non-negative numbers with a positive total")
+
     variants = []
     for _ in range(num_variants):
         for attempt in range(100000):
             intersection = {key: [] for key in lanes}
             for _ in range(num_cars):
-                turn = rng.choices(["left", "straight", "right"], weights=[20, 60, 20])[0]
-                direction = rng.choice(DIRECTIONS)
+                direction = rng.choices(DIRECTIONS, weights=demand)[0]
+                turn = rng.choices(TURNS, weights=turn_mix[direction])[0]
                 valid_lanes = [0] if turn == "left" else [1] if turn == "right" else [0, 1]
                 lane = rng.choice(valid_lanes)
                 arrival = rng.uniform(0, arrival_window)

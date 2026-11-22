@@ -38,13 +38,24 @@ Additionally, the fitness of a genotype depends on how its genes work together. 
 
 ### Generating scenarios: `generate_variants`
 
-Each scenario has 30 cars. Each car gets:
-- a random turn (20% left, 60% straight, 20% right),
-- a random direction,
+Each car gets:
+- a random direction, weighted by `direction_weights` (equal by default),
+- a random turn, weighted by that direction's `turn_weights` (20% left, 60% straight, 20% right by default),
 - a valid lane for that turn,
-- an arrival time between 0 and 120 seconds.
+- an arrival time between 0 and `arrival_window` seconds.
 
-A scenario is accepted only if every lane has between 1 and 8 cars. Otherwise the generator redraws it. A fixed seed makes the scenarios reproducible.
+A scenario is accepted only if every lane has between `min_cars` and `max_cars` cars. Otherwise the generator redraws it. A fixed seed makes the scenarios reproducible.
+
+The saved scenarios use the settings in `setup.py`: 200 cars arriving over 240 s, with uneven traffic so that the timing genes have real trade-offs:
+
+| Approach | Share of cars | Left / straight / right |
+|---|---|---|
+| N | 1/6 | 50 / 35 / 15 |
+| S | 3/6 | 5 / 80 / 15 |
+| E | 1/6 | 20 / 65 / 15 |
+| W | 1/6 | 20 / 65 / 15 |
+
+So N has many left turns facing a heavy oncoming stream from S.
 
 ### Simulating a timing plan: `simulate_traffic(intersection, individual)`
 
@@ -135,6 +146,7 @@ The best configuration is then written to `outer_results.json`, and `algorithm.p
 
 The tests check:
 - **Scenario generation:** 50 scenarios, 30 cars each, 1–8 cars per lane, valid lane/turn pairs, sorted arrival times, and reproducible results from a seed.
+- **Traffic weights:** direction and turn weights are respected, invalid weights are rejected, and the saved scenarios match the uneven settings in `setup.py`.
 - **Simulator behaviour on hand-built cases:**
   - an empty intersection,
   - a single car going straight,

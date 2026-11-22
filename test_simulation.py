@@ -22,6 +22,28 @@ class TestTrafficSimulation(unittest.TestCase):
             self.assertTrue(all(q[i]["arrival"] <= q[i + 1]["arrival"] for q in variant.values() for i in range(len(q) - 1)))
         self.assertEqual(variants, generate_variants(seed=17))
 
+    def test_direction_and_turn_weights(self):
+        variants = generate_variants(num_variants=3, num_cars=40, min_cars=0, max_cars=40,
+                                     direction_weights={"N": 1, "S": 0, "E": 0, "W": 0}, turn_weights={"N": (1, 0, 0)})
+        for variant in variants:
+            self.assertEqual(len(variant[("N", 0)]), 40)
+            self.assertTrue(all(car["turn"] == "left" for car in variant[("N", 0)]))
+
+    def test_invalid_weights_rejected(self):
+        with self.assertRaises(ValueError):
+            generate_variants(num_variants=1, direction_weights={"X": 1})
+        with self.assertRaises(ValueError):
+            generate_variants(num_variants=1, direction_weights={"N": -1})
+        with self.assertRaises(ValueError):
+            generate_variants(num_variants=1, turn_weights={"N": (1, 0)})
+
+    def test_saved_variants_follow_uneven_settings(self):
+        variants = load_variants()
+        cars = lambda d: sum(len(variant[(d, lane)]) for variant in variants for lane in range(2))
+        left_share = lambda d: sum(car["turn"] == "left" for variant in variants for car in variant[(d, 0)]) / cars(d)
+        self.assertGreater(cars("S"), 2 * cars("N"))  # S demand is 3x
+        self.assertGreater(left_share("N"), 5 * left_share("S"))  # N 50% lefts vs S 5%
+
     def test_saved_variants_are_reused(self):
         self.assertEqual(load_variants(), load_variants())
 
