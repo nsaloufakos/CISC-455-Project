@@ -3,7 +3,7 @@
     "mu": 51,
     "lamd": 78,
     "lr": 0.28329482820918916,
-    "tournament_size": 10,
+    "tournament_size": 3,
     "crossover_alpha": 0.017213260387557106,
     "mating_pool_size": 128,
     "sigma_init": 2.9847716406926033,
@@ -12,5 +12,6 @@
   "best_fitness": 208.0183648340431,
   "configurations_evaluated": 30,
   "inner_evaluation_budget": 300,
-  "inner_repeats": 2
+  "inner_repeats": 2,
+  "note": "tournament_size changed by hand from 10 to 3: on the uneven 200-car scenarios with the wait fitness (seed 1, 100 generations) it scored 82.96 vs 85.70 for 10 and 85.04 for 2. The other values come from an outer EA run on the old simulator and scenarios; rerunning outer_algorithm.py replaces this file."
 }
