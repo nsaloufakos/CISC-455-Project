@@ -65,7 +65,7 @@ So N has many left turns facing a heavy oncoming stream from S.
 The signal cycle alternates between two axes, N/S and then E/W:
 
 1. **Advanced green** (length `advanced`): only left turns from that direction may go. These are protected lefts.
-2. **Regular green** (length `green`): straight and right turns may go. A left turn may also go, but it waits while an oncoming car is going straight or turning right. It does not wait for oncoming left-turners, so two opposing lefts can go together. This models a permissive left.
+2. **Regular green** (length `green`): straight and right turns may go. A left turn may also go, but it waits while an oncoming car is going straight or turning right, or will start within the next `LEFT_TURN_GAP` seconds (6 s). Only oncoming cars that will actually go count: ones whose green has started and that can finish before it ends. A left does not wait for oncoming left-turners, so two opposing lefts can go together. This models a permissive left. Setting `LEFT_TURN_GAP = 0` in `simulation.py` turns the gap rule off.
 3. An axis phase lasts as long as the longer of its two directions (`advanced + green`). Then there is a `CLEARANCE_TIME` of 2 s (all red) before the other axis starts.
 
 Movement rules:
@@ -154,6 +154,7 @@ The tests check:
   - opposite straights moving together, both lanes of one approach moving together, and one car at a time within a lane,
   - a protected left on the advanced green, and a protected left going before an oncoming straight,
   - a permissive left waiting for oncoming traffic, and opposing lefts not deadlocking,
+  - the left-turn gap: a left waits for a car arriving within the gap, goes when the gap is long enough, ignores an oncoming car that can't go, and the rule can be switched off,
   - a car that can't finish not blocking others,
   - a green too short for a car to finish.
 - **EA operators:** chromosome length and bounds after crossover and mutation, the σ floor, and that fitness is the deterministic mean over scenarios.

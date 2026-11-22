@@ -1,7 +1,9 @@
 
 import unittest
 from copy import deepcopy
-from simulation import generate_variants, simulate_traffic
+from unittest import mock
+import simulation
+from simulation import generate_variants, simulate_traffic, LEFT_TURN_GAP
 from algorithm import evaluate_fitness, initalize_population, mutate, crossover, BOUNDS
 from setup import load_variants, COMPLETION_WEIGHT, AVERAGE_WAIT_WEIGHT, MAX_WAIT_WEIGHT
 
@@ -114,6 +116,40 @@ class TestTrafficSimulation(unittest.TestCase):
         self.empty[("S", 0)] = [{"turn": "straight", "arrival": 0.0}]
         times = [0.0, 20.0] * 4 + [5.0] * 8
         self.assertEqual(simulate_traffic(self.empty, times)["completion_time"], 6.0)
+
+    def test_permissive_left_waits_for_approaching_car(self):
+        # The S car arrives 2s after the N left could start, inside the gap.
+        self.empty[("N", 0)] = [{"turn": "left", "arrival": 0.0}]
+        self.empty[("S", 0)] = [{"turn": "straight", "arrival": 2.0}]
+        times = [0.0, 20.0] * 4 + [5.0] * 8
+        result = simulate_traffic(self.empty, times)
+        self.assertEqual(result["completion_time"], 8.0)  # S 2-4, then the left 4-8
+        self.assertEqual(result["max_wait"], 4.0)
+
+    def test_permissive_left_goes_when_gap_is_long_enough(self):
+        self.empty[("N", 0)] = [{"turn": "left", "arrival": 0.0}]
+        self.empty[("S", 0)] = [{"turn": "straight", "arrival": LEFT_TURN_GAP + 1}]
+        times = [0.0, 20.0] * 4 + [5.0] * 8
+        result = simulate_traffic(self.empty, times)
+        self.assertEqual(result["completion_time"], LEFT_TURN_GAP + 3)  # left 0-4, S arrives and goes straight away
+        self.assertEqual(result["max_wait"], 0.0)
+
+    def test_permissive_left_ignores_car_that_cannot_go(self):
+        # S's green ends at 3, so its car arriving at 2 can't finish and won't move.
+        self.empty[("N", 0)] = [{"turn": "left", "arrival": 0.0}]
+        self.empty[("S", 0)] = [{"turn": "straight", "arrival": 2.0}]
+        times = [0.0, 20.0, 0.0, 3.0, 0.0, 20.0, 0.0, 20.0] + [5.0] * 8
+        result = simulate_traffic(self.empty, times)
+        self.assertEqual(result["completion_time"], 46.0)  # left 0-4; S waits for the next N/S phase at 44
+        self.assertEqual(result["max_wait"], 42.0)
+
+    def test_gap_rule_can_be_switched_off(self):
+        self.empty[("N", 0)] = [{"turn": "left", "arrival": 0.0}]
+        self.empty[("S", 0)] = [{"turn": "straight", "arrival": 2.0}]
+        times = [0.0, 20.0] * 4 + [5.0] * 8
+        with mock.patch.object(simulation, "LEFT_TURN_GAP", 0.0):
+            result = simulate_traffic(self.empty, times)
+        self.assertEqual(result["completion_time"], 6.0)  # left 0-4, S waits for it, 4-6
 
     def test_short_green_does_not_allow_unfinished_car(self):
         self.empty[("N", 0)] = [{"turn": "straight", "arrival": 0.0}] * 3

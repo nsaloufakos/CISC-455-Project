@@ -8,6 +8,9 @@ CLEARANCE_TIME = 2.0
 MAX_CYCLES = 100
 PENALTY = 100000.0
 EPS = 1e-9
+# A permissive left needs this many seconds clear of oncoming straight/right
+# traffic before it starts. Set to 0 to turn the rule off.
+LEFT_TURN_GAP = 6.0
 TURNS = ("left", "straight", "right")
 DEFAULT_TURN_WEIGHTS = (20, 60, 20)  # left, straight, right
 
@@ -81,15 +84,36 @@ def _conflicts(direction: str, turn: str, moving: list) -> bool:
             return True
     return False
 
+def _oncoming_within_gap(direction: str, now: float, elapsed: float, queues: dict, times: dict, lane_free_at: dict) -> bool:
+    """True if an oncoming straight or right turn will start within LEFT_TURN_GAP seconds.
+
+    Only cars that will actually go count: the car at the front of an oncoming
+    lane, starting once it has arrived, its lane is free and its regular green
+    has begun, and only if it can finish before that green ends.
+    """
+    if LEFT_TURN_GAP <= 0:
+        return False
+    opposite = OPPOSITE[direction]
+    advanced, green = times[opposite]
+    for lane in range(2):
+        queue = queues[(opposite, lane)]
+        if not queue or queue[0]["turn"] == "left":
+            continue
+        start = max(now, queue[0]["arrival"] - elapsed, lane_free_at[(opposite, lane)], advanced)
+        if start < now + LEFT_TURN_GAP - EPS and start + MOVEMENT_TIME[queue[0]["turn"]] <= advanced + green + EPS:
+            return True
+    return False
+
 def simulate_traffic(intersection: dict, individual: list[float]) -> dict:
     """Run the fixed-time signal plan in individual over one traffic scenario.
 
     Each lane sends one car at a time, and any cars whose paths do not cross
     can move together. At each moment cars start in priority order: protected
     lefts, then straights and rights, then permissive lefts (earlier arrivals
-    first within each group). A permissive left therefore waits while oncoming
-    straight or right traffic is moving, but never for oncoming left-turners.
-    A car only starts if it can finish before its own signal ends.
+    first within each group). A permissive left waits while oncoming straight
+    or right traffic is moving or will start within LEFT_TURN_GAP seconds, but
+    never for oncoming left-turners. A car only starts if it can finish before
+    its own signal ends.
     """
     times = {direction: (float(individual[2 * i]), float(individual[2 * i + 1])) for i, direction in enumerate(DIRECTIONS)}
     if any(a < 0 or g <= 0 for a, g in times.values()):
@@ -134,8 +158,10 @@ def simulate_traffic(intersection: dict, individual: list[float]) -> dict:
                         priority = 0 if signal == "advanced" else 2 if turn == "left" else 1
                         ready.append((priority, queue[0]["arrival"], direction, lane, turn))
 
-                for _, _, direction, lane, turn in sorted(ready):
+                for priority, _, direction, lane, turn in sorted(ready):
                     if _conflicts(direction, turn, moving):
+                        continue
+                    if priority == 2 and _oncoming_within_gap(direction, now, elapsed, queues, times, lane_free_at):
                         continue
                     car = queues[(direction, lane)].pop(0)
                     end = now + MOVEMENT_TIME[turn]
