@@ -54,13 +54,14 @@ A scenario is accepted only if every lane has between 1 and 8 cars. Otherwise th
 The signal cycle alternates between two axes, N/S and then E/W:
 
 1. **Advanced green** (length `advanced`): only left turns from that direction may go. These are protected lefts.
-2. **Regular green** (length `green`): straight and right turns may go. A left turn may go only if no car is waiting at the front of the opposite approach. This models a permissive left.
+2. **Regular green** (length `green`): straight and right turns may go. A left turn may also go, but it waits while an oncoming car is going straight or turning right. It does not wait for oncoming left-turners, so two opposing lefts can go together. This models a permissive left.
 3. An axis phase lasts as long as the longer of its two directions (`advanced + green`). Then there is a `CLEARANCE_TIME` of 2 s (all red) before the other axis starts.
 
 Movement rules:
-- Only one car moves through the intersection at a time.
+- Each lane sends one car at a time, but cars whose paths don't cross move at the same time: opposite straights and rights, both lanes of one approach, and opposing lefts. Only a left turn and an oncoming straight or right turn conflict.
+- When several cars can start at once, they start in this order: protected lefts, then straights and rights, then permissive lefts, earliest arrival first within each group.
 - A car takes 2 s to go straight, 3 s to turn right, or 4 s to turn left.
-- A car starts only if it has already arrived and can finish before its signal ends.
+- A car starts only if it has already arrived and can finish before its signal ends. A car that can't finish waits, but it no longer stops other cars from going.
 - The cycle repeats until every car has cleared, up to `MAX_CYCLES` (100). If cars remain after that, the plan gets a large `PENALTY` score.
 
 The function returns `completion_time`, `average_wait` and `max_wait`. It does not modify the scenario it is given.
@@ -138,8 +139,9 @@ The tests check:
   - an empty intersection,
   - a single car going straight,
   - a car arriving later,
-  - one car at a time,
-  - a protected left on the advanced green,
-  - a permissive left waiting for oncoming traffic,
+  - opposite straights moving together, both lanes of one approach moving together, and one car at a time within a lane,
+  - a protected left on the advanced green, and a protected left going before an oncoming straight,
+  - a permissive left waiting for oncoming traffic, and opposing lefts not deadlocking,
+  - a car that can't finish not blocking others,
   - a green too short for a car to finish.
 - **EA operators:** chromosome length and bounds after crossover and mutation, the σ floor, and that fitness is the deterministic mean over scenarios.
