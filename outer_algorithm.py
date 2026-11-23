@@ -1,11 +1,14 @@
 import numpy as np
 import random
 import json
+import csv
+import time
 import multiprocessing as mp
+from datetime import datetime
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
 from algorithm import run_algorithm, BOUNDS
-from setup import load_variants
+from setup import load_variants, COMPLETION_WEIGHT, AVERAGE_WAIT_WEIGHT, MAX_WAIT_WEIGHT
 
 # The outer EA optimizes the inner EA's hyperparameters.
 PARAMETERS = ["mu", "lamd", "lr", "tournament_size", "crossover_alpha", "mating_pool_size", "sigma_init", "sigma_bound"]
@@ -18,10 +21,13 @@ OUTER_GENERATIONS = 4
 OUTER_TOURNAMENT_SIZE = 3
 CONFIGS_IN_PARALLEL = 2
 INNER_EVALUATION_BUDGET = 300
-INNER_GENERATIONS = 100
+INNER_GENERATIONS = 25
 INNER_REPEATS = 4
 INNER_SEEDS = (101, 202, 303, 404, 505)
 OUTER_SEED = 17
+# Each run writes logs/outer_ea_<timestamp>.csv (one row per configuration, written as it
+# finishes) and logs/outer_ea_<timestamp>_settings.json (the settings of that run).
+LOG_DIR = Path(__file__).with_name("logs")
 
 
 def decode(individual: list[float]) -> dict:
@@ -55,11 +61,12 @@ def run_inner(settings: dict, variants: list[dict], generations: int, seed: int)
     return fitness
 
 
-def evaluate_outer(individual: list[float], variants: list[dict], executor: ProcessPoolExecutor, futures = None) -> float:
+def evaluate_outer(individual: list[float], variants: list[dict], executor: ProcessPoolExecutor, futures = None) -> list[float]:
+    """Run the inner EA once per seed and return each run's best fitness (empty if it can't run)."""
     settings = decode(individual)
     generations = INNER_GENERATIONS #(INNER_EVALUATION_BUDGET - settings["mu"]) // settings["lamd"]
     if generations < 1:
-        return float("inf")
+        return []
 
     print(f"  Hyperparameters: {settings}", flush=True)
     print(f"  Inner generations: {generations}", flush=True)
@@ -79,7 +86,7 @@ def evaluate_outer(individual: list[float], variants: list[dict], executor: Proc
     mean_fitness = float(np.mean(results))
     print(f"  Mean fitness = {mean_fitness:.2f}", flush=True)
 
-    return mean_fitness
+    return results
 
 
 def run_outer_algorithm():
@@ -107,6 +114,31 @@ def _run_outer_algorithm(executor: ProcessPoolExecutor):
     print(f"Traffic scenarios: {len(variants)}", flush=True)
     print("=" * 60, flush=True)
 
+    # Log files for this run. Each row is flushed straight away, so a stopped or
+    # crashed run still leaves everything evaluated up to that point.
+    seeds = INNER_SEEDS[:INNER_REPEATS]
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    LOG_DIR.mkdir(exist_ok = True)
+    log_path = LOG_DIR / f"outer_ea_{stamp}.csv"
+    with (LOG_DIR / f"outer_ea_{stamp}_settings.json").open("w") as file:
+        json.dump({
+            "started": datetime.now().isoformat(timespec = "seconds"),
+            "outer_mu": OUTER_MU, "outer_lamd": OUTER_LAMD, "outer_generations": OUTER_GENERATIONS,
+            "outer_tournament_size": OUTER_TOURNAMENT_SIZE, "outer_seed": OUTER_SEED,
+            "configs_in_parallel": CONFIGS_IN_PARALLEL,
+            "inner_generations": INNER_GENERATIONS, "inner_repeats": INNER_REPEATS, "inner_seeds": list(seeds),
+            "parameter_bounds": dict(zip(PARAMETERS, BOUNDS_OUTER)),
+            "traffic_scenarios": len(variants),
+            "fitness_weights": {"completion": COMPLETION_WEIGHT, "average_wait": AVERAGE_WAIT_WEIGHT, "max_wait": MAX_WAIT_WEIGHT},
+        }, file, indent = 2)
+    log_file = log_path.open("w", newline = "")
+    log = csv.writer(log_file)
+    log.writerow(["outer_generation", "configuration", *PARAMETERS, *[f"fitness_seed_{s}" for s in seeds],
+                  "mean_fitness", "std_fitness", "cached", "best_so_far", "elapsed_seconds"])
+    start_time = time.time()
+    current_generation = 0  # 0 = initial population
+    print(f"Logging to: {log_path}", flush=True)
+
     def fitness(individual, futures = None):
         nonlocal evaluations_completed, best_fitness
 
@@ -116,12 +148,14 @@ def _run_outer_algorithm(executor: ProcessPoolExecutor):
 
         print(f"\nConfiguration {evaluations_completed}/{total_evaluations}", flush=True)
 
-        if key not in cache:
+        cached = key in cache
+        if not cached:
             cache[key] = evaluate_outer(individual, variants, executor, futures)
         else:
             print("  Using cached fitness", flush=True)
 
-        score = cache[key]
+        runs = cache[key]
+        score = float(np.mean(runs)) if runs else float("inf")
 
         if score < best_fitness:
             best_fitness = score
@@ -129,6 +163,11 @@ def _run_outer_algorithm(executor: ProcessPoolExecutor):
 
         print(f"  Configuration fitness: {score:.2f}", flush=True)
         print(f"  Best fitness so far: {best_fitness:.2f}", flush=True)
+
+        log.writerow([current_generation, evaluations_completed, *(settings[name] for name in PARAMETERS),
+                      *(runs if runs else [""] * len(seeds)), score, float(np.std(runs)) if runs else "",
+                      cached, best_fitness, round(time.time() - start_time, 1)])
+        log_file.flush()
 
         return score
 
@@ -161,6 +200,7 @@ def _run_outer_algorithm(executor: ProcessPoolExecutor):
     scores = evaluate_configurations(population)
 
     for generation in range(OUTER_GENERATIONS):
+        current_generation = generation + 1
         print("\n" + "=" * 60, flush=True)
         print(f"OUTER GENERATION {generation + 1}/{OUTER_GENERATIONS}", flush=True)
         print("=" * 60, flush=True)
@@ -210,6 +250,8 @@ def _run_outer_algorithm(executor: ProcessPoolExecutor):
     print(f"Best mean inner fitness: {scores[0]:.2f}", flush = True)
     print(f"Unique configurations evaluated: {len(cache)}", flush = True)
     print(f"Results saved to: {results_file}", flush = True)
+    print(f"Log saved to: {log_path}", flush = True)
+    log_file.close()
 
     return best_settings, scores[0]
 

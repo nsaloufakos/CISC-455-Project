@@ -1,12 +1,28 @@
 import numpy as np
 import random
 import json
+import csv
+import time
+from datetime import datetime
 from pathlib import Path
 from simulation import simulate_traffic
 from setup import load_variants, COMPLETION_WEIGHT, AVERAGE_WAIT_WEIGHT, MAX_WAIT_WEIGHT
 
 NUM_GENES = 8
 BOUNDS = [(0, 15), (5, 60)] * 4
+GENE_NAMES = ["N_advanced", "N_green", "S_advanced", "S_green", "E_advanced", "E_green", "W_advanced", "W_green"]
+LOG_DIR = Path(__file__).with_name("logs")
+LOG_COLUMNS = ["generation", "best_fitness", "mean_fitness", "median_fitness", "worst_fitness", "std_fitness",
+               *[f"best_{name}" for name in GENE_NAMES], "mean_sigma", "gene_diversity", "elapsed_seconds"]
+
+def _log_row(population: list[list[float]], population_fitness: list[float], generation: int, elapsed: float) -> list:
+    """One log row: fitness statistics, the best individual's genes, step sizes and how spread out the population is."""
+    genes = np.array([individual[:NUM_GENES] for individual in population])
+    sigmas = np.array([individual[NUM_GENES:] for individual in population])
+    fitness = np.array(population_fitness)
+    best = population[int(np.argmin(fitness))]
+    return [generation, fitness.min(), fitness.mean(), float(np.median(fitness)), fitness.max(), fitness.std(),
+            *best[:NUM_GENES], sigmas.mean(), genes.std(axis = 0).mean(), round(elapsed, 2)]
 
 def evaluate_fitness(population: list[list[float]], intersection_variants: list[dict]) -> list[float]:
     fitness = []
@@ -87,7 +103,8 @@ def survivor_selection(population: list[list[float]], population_fitness: list[f
     best_solution, best_fitness = survivors[0]
     return new_population, new_fitness, best_solution, best_fitness
 
-def run_algorithm(mu: int, lamd: int, generations: int, bounds: list[tuple[float, float]], sigma_init: float, sigma_bound: float, lr: float, tournament_size: int = 3, variant_seed: int = 42, crossover_alpha: float = 0.5, mating_pool_size: int = None, intersection_variants: list[dict] = None, seed: int = None, verbose: bool = True):
+def run_algorithm(mu: int, lamd: int, generations: int, bounds: list[tuple[float, float]], sigma_init: float, sigma_bound: float, lr: float, tournament_size: int = 3, variant_seed: int = 42, crossover_alpha: float = 0.5, mating_pool_size: int = None, intersection_variants: list[dict] = None, seed: int = None, verbose: bool = True, log_path: Path | str | None = None):
+    """Run the inner EA. If log_path is given, write one CSV row per generation there (0 = initial population)."""
     if intersection_variants is None:
         intersection_variants = load_variants()
     if mating_pool_size is None:
@@ -100,6 +117,15 @@ def run_algorithm(mu: int, lamd: int, generations: int, bounds: list[tuple[float
     population_fitness = evaluate_fitness(population, intersection_variants)
     best_index = int(np.argmin(population_fitness))
     best_solution, best_fitness = population[best_index], population_fitness[best_index]
+
+    log_file = None
+    if log_path is not None:
+        start_time = time.time()
+        log_file = open(log_path, "w", newline = "")
+        log = csv.writer(log_file)
+        log.writerow(LOG_COLUMNS)
+        log.writerow(_log_row(population, population_fitness, 0, time.time() - start_time))
+        log_file.flush()
 
     for generation in range(generations):
         mating_pool = parent_selection(population, population_fitness, mating_pool_size = mating_pool_size, tournament_size = tournament_size, rng = py_rng)
@@ -118,7 +144,12 @@ def run_algorithm(mu: int, lamd: int, generations: int, bounds: list[tuple[float
         )
         if verbose:
             print(f"Generation {generation}: Best Fitness = {best_fitness:.2f}")
+        if log_file is not None:
+            log.writerow(_log_row(population, population_fitness, generation + 1, time.time() - start_time))
+            log_file.flush()
 
+    if log_file is not None:
+        log_file.close()
     return best_solution, best_fitness
 
 if __name__ == "__main__":
@@ -144,19 +175,46 @@ if __name__ == "__main__":
 
         print("Using default hyperparameters")
 
+    generations = 300
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    LOG_DIR.mkdir(exist_ok = True)
+    log_path = LOG_DIR / f"inner_ea_{stamp}.csv"
+    settings_path = LOG_DIR / f"inner_ea_{stamp}_settings.json"
+    run_info = {
+        "started": datetime.now().isoformat(timespec = "seconds"),
+        "hyperparameters": settings,
+        "hyperparameters_from": "outer_results.json" if results_file.exists() else "built-in defaults",
+        "generations": generations,
+        "gene_bounds": dict(zip(GENE_NAMES, BOUNDS)),
+        "traffic_scenarios": len(load_variants()),
+        "fitness_weights": {"completion": COMPLETION_WEIGHT, "average_wait": AVERAGE_WAIT_WEIGHT, "max_wait": MAX_WAIT_WEIGHT},
+    }
+    with settings_path.open("w") as file:
+        json.dump(run_info, file, indent = 2)
+    print(f"Logging to: {log_path}")
+
     best_solution, best_fitness = run_algorithm(
         mu = settings["mu"],
         lamd = settings["lamd"],
-        generations = 100,
+        generations = generations,
         bounds = BOUNDS,
         sigma_init = settings["sigma_init"],
         sigma_bound = settings["sigma_bound"],
         lr = settings["lr"],
         tournament_size = settings["tournament_size"],
         crossover_alpha = settings["crossover_alpha"],
-        mating_pool_size = settings["mating_pool_size"]
+        mating_pool_size = settings["mating_pool_size"],
+        log_path = log_path
     )
 
     print("Best timing genes:", best_solution[:NUM_GENES])
     print("Best mutation sigmas:", best_solution[NUM_GENES:])
     print("Best fitness:", best_fitness)
+
+    run_info["finished"] = datetime.now().isoformat(timespec = "seconds")
+    run_info["best_fitness"] = best_fitness
+    run_info["best_genes"] = dict(zip(GENE_NAMES, best_solution[:NUM_GENES]))
+    run_info["best_sigmas"] = best_solution[NUM_GENES:]
+    with settings_path.open("w") as file:
+        json.dump(run_info, file, indent = 2)
+    print(f"Log saved to: {log_path}")
