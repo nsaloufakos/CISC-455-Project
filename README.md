@@ -38,13 +38,24 @@ Additionally, the fitness of a genotype depends on how its genes work together. 
 
 ### Generating scenarios: `generate_variants`
 
-Each scenario has 30 cars. Each car gets:
-- a random turn (20% left, 60% straight, 20% right),
-- a random direction,
+Each car gets:
+- a random direction, weighted by `direction_weights` (equal by default),
+- a random turn, weighted by that direction's `turn_weights` (20% left, 60% straight, 20% right by default),
 - a valid lane for that turn,
-- an arrival time between 0 and 120 seconds.
+- an arrival time between 0 and `arrival_window` seconds.
 
-A scenario is accepted only if every lane has between 1 and 8 cars. Otherwise the generator redraws it. A fixed seed makes the scenarios reproducible.
+A scenario is accepted only if every lane has between `min_cars` and `max_cars` cars. Otherwise the generator redraws it. A fixed seed makes the scenarios reproducible.
+
+The saved scenarios use the settings in `setup.py`: 100 cars arriving over 240 s, with uneven traffic so that the timing genes have real trade-offs:
+
+| Approach | Share of cars | Left / straight / right |
+|---|---|---|
+| N | 1/6 | 50 / 35 / 15 |
+| S | 3/6 | 5 / 80 / 15 |
+| E | 1/6 | 20 / 65 / 15 |
+| W | 1/6 | 20 / 65 / 15 |
+
+So N has many left turns facing a heavy oncoming stream from S.
 
 ### Simulating a timing plan: `simulate_traffic(intersection, individual)`
 
@@ -54,13 +65,14 @@ A scenario is accepted only if every lane has between 1 and 8 cars. Otherwise th
 The signal cycle alternates between two axes, N/S and then E/W:
 
 1. **Advanced green** (length `advanced`): only left turns from that direction may go. These are protected lefts.
-2. **Regular green** (length `green`): straight and right turns may go. A left turn may go only if no car is waiting at the front of the opposite approach. This models a permissive left.
+2. **Regular green** (length `green`): straight and right turns may go. A left turn may also go, but it waits while an oncoming car is going straight or turning right, or will start within the next `LEFT_TURN_GAP` seconds (6 s). Only oncoming cars that will actually go count: ones whose green has started and that can finish before it ends. A left does not wait for oncoming left-turners, so two opposing lefts can go together. This models a permissive left. Setting `LEFT_TURN_GAP = 0` in `simulation.py` turns the gap rule off.
 3. An axis phase lasts as long as the longer of its two directions (`advanced + green`). Then there is a `CLEARANCE_TIME` of 2 s (all red) before the other axis starts.
 
 Movement rules:
-- Only one car moves through the intersection at a time.
+- Each lane sends one car at a time, but cars whose paths don't cross move at the same time: opposite straights and rights, both lanes of one approach, and opposing lefts. Only a left turn and an oncoming straight or right turn conflict.
+- When several cars can start at once, they start in this order: protected lefts, then straights and rights, then permissive lefts, earliest arrival first within each group.
 - A car takes 2 s to go straight, 3 s to turn right, or 4 s to turn left.
-- A car starts only if it has already arrived and can finish before its signal ends.
+- A car starts only if it has already arrived and can finish before its signal ends. A car that can't finish waits, but it no longer stops other cars from going.
 - The cycle repeats until every car has cleared, up to `MAX_CYCLES` (100). If cars remain after that, the plan gets a large `PENALTY` score.
 
 The function returns `completion_time`, `average_wait` and `max_wait`. It does not modify the scenario it is given.
@@ -75,7 +87,11 @@ The function returns `completion_time`, `average_wait` and `max_wait`. It does n
 JSON keys can't be tuples, so the file stores lane keys as strings like `"N,0"`. `load_variants()` converts them back into tuples.
 
 `setup.py` also sets the fitness weights. The EA minimises this score:
-- score = 1.0 * completion_time + 1.0 * average_wait + 0.5 * max_wait
+- score = 1.0 * average_wait + 0.2 * max_wait
+
+`average_wait` measures the typical driver's delay, the standard measure in traffic engineering. `max_wait` measures fairness to the unluckiest car, such as a left-turner facing heavy oncoming traffic. The two genuinely trade off against each other. With a weight of 0.2, both terms have about equal influence on which plan wins.
+
+`completion_time` has weight 0 (`COMPLETION_WEIGHT`). Among good plans it moves almost in step with `max_wait` (correlation 0.89), so including it counted the worst-off cars twice. Most of it is also the same for every plan, since the last car arrives at about 239 s.
 
 ## 3. The inner EA: algorithm.py
 
@@ -134,12 +150,15 @@ The best configuration is then written to `outer_results.json`, and `algorithm.p
 
 The tests check:
 - **Scenario generation:** 50 scenarios, 30 cars each, 1–8 cars per lane, valid lane/turn pairs, sorted arrival times, and reproducible results from a seed.
+- **Traffic weights:** direction and turn weights are respected, invalid weights are rejected, and the saved scenarios match the uneven settings in `setup.py`.
 - **Simulator behaviour on hand-built cases:**
   - an empty intersection,
   - a single car going straight,
   - a car arriving later,
-  - one car at a time,
-  - a protected left on the advanced green,
-  - a permissive left waiting for oncoming traffic,
+  - opposite straights moving together, both lanes of one approach moving together, and one car at a time within a lane,
+  - a protected left on the advanced green, and a protected left going before an oncoming straight,
+  - a permissive left waiting for oncoming traffic, and opposing lefts not deadlocking,
+  - the left-turn gap: a left waits for a car arriving within the gap, goes when the gap is long enough, ignores an oncoming car that can't go, and the rule can be switched off,
+  - a car that can't finish not blocking others,
   - a green too short for a car to finish.
 - **EA operators:** chromosome length and bounds after crossover and mutation, the σ floor, and that fitness is the deterministic mean over scenarios.
