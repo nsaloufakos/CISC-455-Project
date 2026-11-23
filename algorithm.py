@@ -175,7 +175,7 @@ if __name__ == "__main__":
 
         print("Using default hyperparameters")
 
-    generations = 300
+    generations = 100
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     LOG_DIR.mkdir(exist_ok = True)
     log_path = LOG_DIR / f"inner_ea_{stamp}.csv"

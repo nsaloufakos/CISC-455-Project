@@ -1,0 +1,57 @@
+{
+  "started": "2026-11-22T23:02:17",
+  "outer_mu": 6,
+  "outer_lamd": 6,
+  "outer_generations": 4,
+  "outer_tournament_size": 3,
+  "outer_seed": 17,
+  "configs_in_parallel": 2,
+  "inner_generations": 25,
+  "inner_repeats": 4,
+  "inner_seeds": [
+    101,
+    202,
+    303,
+    404
+  ],
+  "parameter_bounds": {
+    "mu": [
+      10,
+      60
+    ],
+    "lamd": [
+      20,
+      150
+    ],
+    "lr": [
+      0.01,
+      0.5
+    ],
+    "tournament_size": [
+      2,
+      10
+    ],
+    "crossover_alpha": [
+      0.0,
+      1.0
+    ],
+    "mating_pool_size": [
+      20,
+      300
+    ],
+    "sigma_init": [
+      0.5,
+      15.0
+    ],
+    "sigma_bound": [
+      0.001,
+      1.0
+    ]
+  },
+  "traffic_scenarios": 50,
+  "fitness_weights": {
+    "completion": 0.0,
+    "average_wait": 1.0,
+    "max_wait": 0.2
+  }
+}

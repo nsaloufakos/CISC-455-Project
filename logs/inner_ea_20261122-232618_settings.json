@@ -1,0 +1,77 @@
+{
+  "started": "2026-11-22T23:26:18",
+  "hyperparameters": {
+    "mu": 56,
+    "lamd": 126,
+    "lr": 0.09530861024962561,
+    "tournament_size": 9,
+    "crossover_alpha": 0.43476045246,
+    "mating_pool_size": 300,
+    "sigma_init": 2.9847716406926033,
+    "sigma_bound": 0.7369238482743173
+  },
+  "hyperparameters_from": "outer_results.json",
+  "generations": 100,
+  "gene_bounds": {
+    "N_advanced": [
+      0,
+      15
+    ],
+    "N_green": [
+      5,
+      60
+    ],
+    "S_advanced": [
+      0,
+      15
+    ],
+    "S_green": [
+      5,
+      60
+    ],
+    "E_advanced": [
+      0,
+      15
+    ],
+    "E_green": [
+      5,
+      60
+    ],
+    "W_advanced": [
+      0,
+      15
+    ],
+    "W_green": [
+      5,
+      60
+    ]
+  },
+  "traffic_scenarios": 50,
+  "fitness_weights": {
+    "completion": 0.0,
+    "average_wait": 1.0,
+    "max_wait": 0.2
+  },
+  "finished": "2026-11-22T23:31:13",
+  "best_fitness": 27.422437668877322,
+  "best_genes": {
+    "N_advanced": 12.691641455826872,
+    "N_green": 9.437687025411657,
+    "S_advanced": 0.0,
+    "S_green": 23.765354534741533,
+    "E_advanced": 0.0,
+    "E_green": 14.849681053001568,
+    "W_advanced": 6.3752854983510305,
+    "W_green": 8.672583573170892
+  },
+  "best_sigmas": [
+    4.179613481539736,
+    2.3503730199978077,
+    3.1594694634487266,
+    2.9936757982762443,
+    2.7136381381528616,
+    3.6807568633540826,
+    5.046055324398325,
+    3.4076108768050144
+  ]
+}

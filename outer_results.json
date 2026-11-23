@@ -1,17 +1,16 @@
 {
   "best_hyperparameters": {
-    "mu": 51,
-    "lamd": 78,
-    "lr": 0.28329482820918916,
-    "tournament_size": 3,
-    "crossover_alpha": 0.017213260387557106,
-    "mating_pool_size": 128,
+    "mu": 56,
+    "lamd": 126,
+    "lr": 0.09530861024962561,
+    "tournament_size": 9,
+    "crossover_alpha": 0.4347604524687432,
+    "mating_pool_size": 300,
     "sigma_init": 2.9847716406926033,
-    "sigma_bound": 0.6117317653904816
+    "sigma_bound": 0.7369238482743173
   },
-  "best_fitness": 208.0183648340431,
-  "configurations_evaluated": 30,
+  "best_fitness": 28.41333533845552,
+  "configurations_evaluated": 29,
   "inner_evaluation_budget": 300,
-  "inner_repeats": 2,
-  "note": "tournament_size changed by hand from 10 to 3: on the uneven 200-car scenarios with the wait fitness (seed 1, 100 generations) it scored 82.96 vs 85.70 for 10 and 85.04 for 2. The other values come from an outer EA run on the old simulator and scenarios; rerunning outer_algorithm.py replaces this file."
+  "inner_repeats": 4
 }
