@@ -46,7 +46,7 @@ Each car gets:
 
 A scenario is accepted only if every lane has between `min_cars` and `max_cars` cars. Otherwise the generator redraws it. A fixed seed makes the scenarios reproducible.
 
-The saved scenarios use the settings in `setup.py`: 200 cars arriving over 240 s, with uneven traffic so that the timing genes have real trade-offs:
+The saved scenarios use the settings in `setup.py`: 100 cars arriving over 240 s, with uneven traffic so that the timing genes have real trade-offs:
 
 | Approach | Share of cars | Left / straight / right |
 |---|---|---|

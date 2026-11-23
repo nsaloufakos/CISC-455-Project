@@ -4,7 +4,7 @@ from pathlib import Path
 from simulation import generate_variants
 
 NUM_VARIANTS = 50
-NUM_CARS = 200
+NUM_CARS = 100
 MIN_CARS = 1
 MAX_CARS = 80
 VARIANT_SEED = 42
